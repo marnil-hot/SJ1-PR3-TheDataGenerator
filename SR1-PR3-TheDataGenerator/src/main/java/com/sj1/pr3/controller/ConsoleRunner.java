@@ -12,6 +12,7 @@ public class ConsoleRunner
     {
         System.out.println( "Hello World!" );
         System.out.println( "Team HoT rulez!" );
+        System.out.println( "Feature XY is in!" );
         System.out.println( "Added something to merge in!" );
         System.out.println( "Let's get some of that random data: " + DataGenerator.randomData() );
         
