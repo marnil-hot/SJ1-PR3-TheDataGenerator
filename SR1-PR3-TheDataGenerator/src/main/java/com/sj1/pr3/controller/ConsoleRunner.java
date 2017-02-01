@@ -12,6 +12,7 @@ public class ConsoleRunner
     {
         System.out.println( "Hello World!" );
         System.out.println( "Let's get some of that random data: " + DataGenerator.randomData() );
+        System.out.println("Testing GIT ");
         
     }
 }
