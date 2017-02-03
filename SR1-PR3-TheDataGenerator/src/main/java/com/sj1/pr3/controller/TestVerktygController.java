@@ -139,18 +139,25 @@ public class TestVerktygController implements Initializable {
 			errorLabel.setText("");
 			errorLabel.setText("Length and Delimiter must be specified");
 		}
-		else if(lengthFld.getText().equals("") || delimiterFld.getText().equals("") || !isNumber(lengthFld.getText())){
+		else if(lengthFld.getText().equals("") || !isNumber(lengthFld.getText())){
 			if(lengthFld.getText().equals("")){
 				errorLabel.setText("");
 				errorLabel.setText("Length can not be empty");
 			}
-			else if(delimiterFld.getText().equals("")){
-				errorLabel.setText("");
-				errorLabel.setText("You have to specify delimiter character");
-			}
 			else{
 				errorLabel.setText("");;
 				errorLabel.setText("Length must be a number");
+			}
+		}
+		else if(delimiterFld.getText().length() > 1 || delimiterFld.getText().length() == 0 || isNumber(delimiterFld.getText())){
+			if(delimiterFld.getText().length() > 1){
+				errorLabel.setText("Delimiter must be max 1 character");
+			}
+			else if(delimiterFld.getText().length() == 0){
+				errorLabel.setText("Delimiter must be 1 character");
+			}
+			else{
+				errorLabel.setText("Delimiter can not be a number");
 			}
 		}
 		else{
