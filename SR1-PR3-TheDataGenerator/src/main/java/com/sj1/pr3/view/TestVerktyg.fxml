@@ -28,22 +28,22 @@
       </TextField>
       <Button fx:id="saveToFileBtn" layoutX="675.0" layoutY="249.0" mnemonicParsing="false" text="Save output to file" />
       <Button fx:id="generateRandomBtn" layoutX="211.0" layoutY="164.0" mnemonicParsing="false" text="Generate random string" />
-      <Button fx:id="generateExcelBtn" layoutX="11.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Generate excel" />
+      <Button fx:id="generateExcelBtn" layoutX="12.0" layoutY="330.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Generate excel" />
       <Button fx:id="generateEmailBtn" layoutX="17.0" layoutY="164.0" mnemonicParsing="false" text="Generate random email adress" />
-      <Button fx:id="fetchDbBtn" layoutX="11.0" layoutY="361.0" mnemonicParsing="false" text="Fetch data from Database" />
-      <Button fx:id="generateImgBtn" layoutX="10.0" layoutY="496.0" mnemonicParsing="false" text="Create Image" />
-      <TextField fx:id="witdhColorFld" layoutX="11.0" layoutY="430.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
-      <TextField fx:id="heightColorFld" layoutX="11.0" layoutY="463.0" prefHeight="25.0" prefWidth="62.0" promptText="Height" />
-      <ComboBox fx:id="colorsComboBox" layoutX="108.0" layoutY="430.0" prefWidth="150.0" promptText="Color" />
+      <Button fx:id="fetchDbBtn" layoutX="12.0" layoutY="435.0" mnemonicParsing="false" text="Fetch data from Database" />
+      <Button fx:id="generateImgBtn" layoutX="11.0" layoutY="570.0" mnemonicParsing="false" text="Create Image" />
+      <TextField fx:id="witdhColorFld" layoutX="12.0" layoutY="504.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
+      <TextField fx:id="heightColorFld" layoutX="12.0" layoutY="537.0" prefHeight="25.0" prefWidth="62.0" promptText="Height" />
+      <ComboBox fx:id="colorsComboBox" layoutX="109.0" layoutY="504.0" prefWidth="150.0" promptText="Color" />
       <Text layoutX="545.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="79.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
-      <Text layoutX="79.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
-      <Line endX="150.0" layoutX="113.0" layoutY="413.0" startX="-100.0" />
-      <Text layoutX="86.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate image">
+      <Text layoutX="80.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
+      <Text layoutX="80.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
+      <Line endX="150.0" layoutX="114.0" layoutY="487.0" startX="-100.0" />
+      <Text layoutX="87.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate image">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -54,8 +54,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Line endX="150.0" layoutX="111.0" layoutY="217.0" startX="-100.0" />
-      <Text layoutX="119.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Excel">
+      <Line endX="150.0" layoutX="112.0" layoutY="291.0" startX="-100.0" />
+      <Text layoutX="120.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Excel">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -68,16 +68,16 @@
       <Line endX="150.0" layoutX="111.0" layoutY="38.0" startX="-100.0" />
       <Text layoutX="21.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lenght of string:" />
       <Text layoutX="21.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose delmiter character (Max1 char):" />
-      <TextField fx:id="excelRowsFld" layoutX="127.0" layoutY="256.0" prefHeight="25.0" prefWidth="70.0" promptText="Rows" />
-      <TextField fx:id="excelColumnsFld" layoutX="203.0" layoutY="256.0" prefHeight="25.0" prefWidth="70.0" promptText="Columns" />
-      <ComboBox fx:id="excelComboBox" layoutX="11.0" layoutY="223.0" prefWidth="150.0" promptText="Excel table data" />
-      <TextField fx:id="dataBaseFld" editable="false" layoutX="174.0" layoutY="361.0" />
-      <Text layoutX="114.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database">
+      <TextField fx:id="excelRowsFld" layoutX="128.0" layoutY="330.0" prefHeight="25.0" prefWidth="70.0" promptText="Rows" />
+      <TextField fx:id="excelColumnsFld" layoutX="204.0" layoutY="330.0" prefHeight="25.0" prefWidth="70.0" promptText="Columns" />
+      <ComboBox fx:id="excelComboBox" layoutX="12.0" layoutY="297.0" prefWidth="150.0" promptText="Excel table data" />
+      <TextField fx:id="dataBaseFld" editable="false" layoutX="175.0" layoutY="435.0" />
+      <Text layoutX="115.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Line endX="150.0" layoutX="111.0" layoutY="308.0" startX="-100.0" />
+      <Line endX="150.0" layoutX="112.0" layoutY="382.0" startX="-100.0" />
       <HBox layoutX="167.0" layoutY="88.0" prefHeight="25.0" prefWidth="484.0" spacing="5.0">
          <children>
             <CheckBox fx:id="checkBoxLetters" mnemonicParsing="false" text="Letters">
@@ -107,7 +107,7 @@
             </CheckBox>
          </children>
       </HBox>
-      <ComboBox fx:id="dataBaseComboBox" layoutX="11.0" layoutY="325.0" prefWidth="150.0" promptText="Select what to fetch" visibleRowCount="3" />
+      <ComboBox fx:id="dataBaseComboBox" layoutX="10.0" layoutY="390.0" prefWidth="150.0" promptText="Select what to fetch" visibleRowCount="3" />
       <Button fx:id="counterStringBtn" layoutX="45.0" layoutY="130.0" mnemonicParsing="false" onAction="#getCounterString" prefHeight="25.0" prefWidth="149.0" text="Generate CounterString" />
    </children>
 </AnchorPane>
