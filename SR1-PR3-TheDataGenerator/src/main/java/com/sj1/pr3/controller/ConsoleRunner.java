@@ -6,7 +6,7 @@ import com.sj1.pr3.datagenerator.*;
  * Hello world!
  *
  */
-public class ConsoleRunner 
+/*public class ConsoleRunner 
 {
     public static void main( String[] args )
     {
@@ -15,3 +15,4 @@ public class ConsoleRunner
         
     }
 }
+*/
