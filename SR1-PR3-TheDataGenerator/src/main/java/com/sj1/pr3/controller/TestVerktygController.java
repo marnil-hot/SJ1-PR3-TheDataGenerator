@@ -95,10 +95,10 @@ public class TestVerktygController implements Initializable {
 	 * Developed by Kevin Nemec in User Story 5.
 	 * Method which generates a CounterString based on the parameters.
 	 * @param value the value you want to generate the CounterString from
-	 * @param delimiter
+	 * @param delimiter which character you want between each character.
 	 * @return the CounterString
 	 */
-	private static String generateCounterString(long length, String delimiter) {
+	public static String generateCounterString(long length, String delimiter) {
 		long currentNumber = length;
 		int outLen = 0;
 		List<String> numbers = new ArrayList<String>();
@@ -174,7 +174,7 @@ public class TestVerktygController implements Initializable {
 	/**
 	 * Developed by Kevin Nemec in User Story 5.
 	 * Method to check if an input in a input field is a number or not.
-	 * @param input
+	 * @param input the text you want to check if there are only numbers are not.
 	 * @return
 	 */
 	public static boolean isNumber(String input){
