@@ -1,14 +1,12 @@
 package com.sj1.pr3.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
 import javafx.application.Platform;
-import javafx.beans.property.BooleanProperty;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -97,166 +95,33 @@ public class TestVerktygController implements Initializable {
 	 * Developed by Kevin Nemec in User Story 5.
 	 * Method which generates a CounterString based on the parameters.
 	 * @param value the value you want to generate the CounterString from
+	 * @param delimiter
 	 * @return the CounterString
 	 */
-	//Problem med låga och höga tal, tror jag måste skapa olika funktioner för olika storlekar på tal man skickar in i parametern och sen utgå från det
-	//Skapa callback som kallar på andra funktioner i funktionen när ett value blir lika med eller högre tröskeln för nästa tal cykel.
-	private static String generateCounterString(long length, String delimeter) {
-		String counterString = null;
-		int nextValue;
-		int counter = 0;
+	private static String generateCounterString(long length, String delimiter) {
+		long currentNumber = length;
+		int outLen = 0;
+		List<String> numbers = new ArrayList<String>();
+		String currentString = null;
+		String counterString = "";
 		
-		if((length % 2) != 0){
-			counterString = "2";
-			nextValue = 2;
-		}
-		else{
-			counterString = delimeter;
-			nextValue = 3;
+		while(outLen < length){
+			currentString = currentNumber + delimiter;
+			currentNumber -= currentString.length();
+			
+			if(outLen + currentString.length() <= length){
+				numbers.add(currentString);
+				outLen += currentString.length();
+			}
+			else{
+				numbers.add(delimiter);
+				break;
+			}
 		}
 		
-		if(nextValue == 2){
-			for(int i = 2; i < length; i++){
-				if((i % 2) == 0 && nextValue <= 8){
-					counterString += delimeter;
-				}
-				else{
-					nextValue = (i + 1);
-					counterString += nextValue;
-				}
-				if(nextValue == 8){
-					break;
-				}
-			}
-			
-			for(int n = nextValue; n < length; n++){
-				if((n % 2) == 0 && nextValue <= 98){
-					counterString += delimeter;
-				}
-				else{
-					nextValue += 3;
-					counterString += nextValue;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-			
-			for(int j = nextValue; j < length; j++){
-				if(nextValue == 98 && (j % 2) == 0 && nextValue <= 998){
-					counterString += delimeter;
-				}
-				else{
-					nextValue += 4;
-					counterString += nextValue;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-				counter++;
-			}
-			
-			for(int k = nextValue; k < length; k++){
-				if((k % 2) == 0 && nextValue <= 9998){
-					counterString += delimeter;
-				}
-				else{
-					nextValue += 5;
-					counterString += nextValue;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-			
-			for(int v = nextValue; v < length; v++){
-				if((v % 2) == 0 && nextValue <= 99998){
-					counterString += delimeter;
-				}
-				else{
-					nextValue += 6;
-					counterString += nextValue;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-		}
-		else if(nextValue == 3){
-			counterString += nextValue;
-			
-			for(int i = 3; i < length; i++){
-				if((i % 2) == 0 && nextValue <= 9){
-					nextValue = (i + 1);
-					counterString += nextValue;
-				}
-				else{
-					counterString += delimeter;
-				}
-				if(nextValue == 9){
-					break;
-				}
-			}
-			
-			for(int n = nextValue; n < length; n++){
-				if((n % 2) == 0 && nextValue <= 99){
-					nextValue += 3;
-					counterString += nextValue;
-				}
-				else{
-					counterString += delimeter;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-			
-			for(int j = nextValue; j < length; j++){
-				if((j % 2) == 0 && nextValue <= 999){
-					nextValue += 4;
-					counterString += nextValue;
-				}
-				else{
-					counterString += delimeter;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-			
-			for(int k = nextValue; k < length; k++){
-				if((k % 2) == 0 && nextValue <= 9999){
-					nextValue += 5;
-					counterString += nextValue;
-				}
-				else{
-					counterString += delimeter;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
-			
-			for(int v = nextValue; v < length; v++){
-				if((v % 2) == 0 && nextValue <= 99999){
-					nextValue += 6;
-					counterString += nextValue;
-				}
-				else{
-					counterString += delimeter;
-				}
-				if(nextValue == length){
-					counterString += delimeter;
-					break;
-				}
-			}
+		Collections.reverse(numbers);
+		for(String s : numbers){
+			counterString += s;
 		}
 		
 		return counterString;
@@ -264,8 +129,8 @@ public class TestVerktygController implements Initializable {
 	
 	/**
 	 * Developed by Kevin Nemec in User Story 5.
-	 * Some error handling to check input values in all the input fields connected to this method. Also running the actual method on a thread to not block
-	 * the UI thread on big number calculations.
+	 * Some error handling to check input values in all the input fields connected to this method. Also updating the UI in a separate thread to not block
+	 * the UI and cause a spike when handling big calculations.
 	 */
 	@FXML
 	private void getCounterString(){
