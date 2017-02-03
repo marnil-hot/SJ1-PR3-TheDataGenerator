@@ -35,9 +35,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="myHeight" layoutX="15.0" layoutY="564.0" promptText="Height" />
-      <TextField fx:id="myWidth" layoutX="190.0" layoutY="564.0" promptText="Width" />
-      <ColorPicker fx:id="myColor" layoutX="375.0" layoutY="564.0" promptText="myColor" />
+      <TextField fx:id="myHeight" layoutX="15.0" layoutY="564.0" prefHeight="27.0" prefWidth="87.0" promptText="Height" />
+      <TextField fx:id="myWidth" layoutX="115.0" layoutY="564.0" prefHeight="27.0" prefWidth="80.0" promptText="Width" />
+      <ColorPicker fx:id="myColor" layoutX="253.0" layoutY="564.0" promptText="myColor" />
       <RadioButton fx:id="myLetters" layoutX="40.0" layoutY="170.0" mnemonicParsing="false" text="Letters" />
       <RadioButton fx:id="myNumbers" layoutX="134.0" layoutY="170.0" mnemonicParsing="false" text="Numbers" />
       <RadioButton fx:id="mySpecialChars" layoutX="25.0" layoutY="235.0" mnemonicParsing="false" text="Special Chars" />
