@@ -41,6 +41,6 @@ public class PNGCreator {
 		
 		graphics.fillRect(0, 0, width, height);
 		
-		ImageIO.write(bufferedImage, "PNG", new File("E:/image.PNG"));
+		ImageIO.write(bufferedImage, "PNG", new File("C:/Users/Public/Documents/generated.png"));
 	}
 }
