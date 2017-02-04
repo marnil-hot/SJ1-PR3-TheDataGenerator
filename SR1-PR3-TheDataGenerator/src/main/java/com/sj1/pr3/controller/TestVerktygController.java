@@ -94,7 +94,8 @@ public class TestVerktygController implements Initializable {
 	
 	
 	/**
-	 * 
+	 * Developed by Kevin Nemec - User Story 10.
+	 * Method is executed when the click event for the button to create a new image fires. Input handling and method invoking below.
 	 * @param event makes it visible for the FXML file.
 	 */
 	@FXML
