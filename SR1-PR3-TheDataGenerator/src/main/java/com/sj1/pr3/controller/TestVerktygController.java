@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.sj1.pr3.ApplicationUtils.AppUtils;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -139,7 +141,7 @@ public class TestVerktygController implements Initializable {
 			errorLabel.setText("");
 			errorLabel.setText("Length and Delimiter must be specified");
 		}
-		else if(lengthFld.getText().equals("") || !isNumber(lengthFld.getText())){
+		else if(lengthFld.getText().equals("") || !AppUtils.isNumber(lengthFld.getText())){
 			if(lengthFld.getText().equals("")){
 				errorLabel.setText("");
 				errorLabel.setText("Length can not be empty");
@@ -149,7 +151,7 @@ public class TestVerktygController implements Initializable {
 				errorLabel.setText("Length must be a number");
 			}
 		}
-		else if(delimiterFld.getText().length() > 1 || delimiterFld.getText().length() == 0 || isNumber(delimiterFld.getText())){
+		else if(delimiterFld.getText().length() > 1 || delimiterFld.getText().length() == 0 || AppUtils.isNumber(delimiterFld.getText())){
 			if(delimiterFld.getText().length() > 1){
 				errorLabel.setText("Delimiter must be max 1 character");
 			}
@@ -169,21 +171,6 @@ public class TestVerktygController implements Initializable {
 				}
 			});
 		}
-	}
-	
-	/**
-	 * Developed by Kevin Nemec in User Story 5.
-	 * Method to check if an input in a input field is a number or not.
-	 * @param input the text you want to check if there are only numbers are not.
-	 * @return
-	 */
-	public static boolean isNumber(String input){
-		for(int i = 0; i < input.length(); i++){
-			if(!Character.isDigit(input.charAt(i))){
-				return false;
-			}
-		}
-		return true;
 	}
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
