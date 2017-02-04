@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 public class PNGCreator {
 	
 	/**
+	 * Developed by Kevin Nemec - User Story 10.
 	 * Method to create a new PNG file with a width, height and color specified by the user.
 	 * @param width = The width of the picture.
 	 * @param height = The height of the picture.
