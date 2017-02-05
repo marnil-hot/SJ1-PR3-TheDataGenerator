@@ -94,41 +94,45 @@ public class TestVerktygController implements Initializable {
 	
 	
 	/**
-	 * Developed by Kevin Nemec - User Story 10.
+	 * Developed by Kevin Nemec in User Story 10.
 	 * Method is executed when the click event for the button to create a new image fires. Input handling and method invoking below.
 	 * @param event makes it visible for the FXML file.
 	 */
 	@FXML
 	private void generateImage(ActionEvent event){
-		int width = Integer.parseInt(witdhColorFld.getText());
-		int height = Integer.parseInt(heightColorFld.getText());
-		String color = colorsComboBox.getValue().toUpperCase();
-		
-		if(width > 1920 || witdhColorFld.getText().length() == 0){
-			if(width > 1920){
-				errorLabel.setText("Width can not exceed 1920");
-			}
-			else{
+		if(witdhColorFld.getText().length() == 0 && heightColorFld.getText().length() == 0 && colorsComboBox.getValue() == null){
+			errorLabel.setText("");
+			errorLabel.setText("You must fill in all 3 fields");
+		}
+		else if(witdhColorFld.getText().length() == 0 || Integer.parseInt(witdhColorFld.getText()) > 1920){
+			if(witdhColorFld.getText().length() == 0){
+				errorLabel.setText("");
 				errorLabel.setText("You must specify a width");
 			}
-		}
-		else if(height > 1080 || heightColorFld.getText().length() == 0){
-			if(height > 1080){
-				errorLabel.setText("");
-				errorLabel.setText("Height can not exceed 1080");
-			}
 			else{
+				errorLabel.setText("");
+				errorLabel.setText("Width can not exceed 1920");
+			}
+		}
+		else if(heightColorFld.getText().length() == 0 || Integer.parseInt(heightColorFld.getText()) > 1080){
+			if(heightColorFld.getText().length() == 0){
 				errorLabel.setText("");
 				errorLabel.setText("You must specify a height");
 			}
+			else{
+				errorLabel.setText("");
+				errorLabel.setText("Height can not exceed 1080");
+			}
 		}
-		else if(color == null){
+		else if(colorsComboBox.getValue() == null){
 			errorLabel.setText("");
 			errorLabel.setText("You must select a color");
 		}
 		else{
 			PNGCreator creator = new PNGCreator();
-			
+			int width = Integer.parseInt(witdhColorFld.getText());
+			int height = Integer.parseInt(heightColorFld.getText());
+			String color = colorsComboBox.getValue().toUpperCase();
 			try{
 				creator.createImage(width, height, color);
 			}
