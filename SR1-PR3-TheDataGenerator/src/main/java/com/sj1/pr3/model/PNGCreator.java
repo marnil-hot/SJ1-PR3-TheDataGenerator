@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class PNGCreator {
 	
 	/**
-	 * Developed by Kevin Nemec in User Story 10.
+	 * Developed by Kevin Nemec in User Story 10 and Edited/Extended by Kevin Nemec in User Story 11.
 	 * Method to create a new PNG file with a width, height and color specified by the user.
 	 * @param width = The width of the picture.
 	 * @param height = The height of the picture.
