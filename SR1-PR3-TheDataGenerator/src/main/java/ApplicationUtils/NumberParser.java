@@ -1,4 +1,4 @@
-package applicationUtil;
+package ApplicationUtils;
 
 /*
  * ErrorHandeling for NumberFormatExcepion.
