@@ -50,8 +50,8 @@ public class SaveFileText {
 			}
 
 			try {
-				// Create file & get the information that will include in the
-				// file.
+				// Create file & get the information that will include in the file
+			
 				String content = outPut;
 				File filetxt = new File(fileName);
 				bufferedWriter = new BufferedWriter(new FileWriter(filetxt, true));
@@ -59,8 +59,7 @@ public class SaveFileText {
 				// Create or add new text to the file.
 				if (filetxt.exists()) {
 					bufferedWriter.write(", end" + content);
-				} else if (file.exists()) {
-					JOptionPane.showMessageDialog(null, "xxxx");
+
 				} else {
 					filetxt.createNewFile();
 					bufferedWriter.write(content);
