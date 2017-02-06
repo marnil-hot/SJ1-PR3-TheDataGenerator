@@ -7,19 +7,26 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 public class PNGCreator {
 	
 	/**
-	 * Developed by Kevin Nemec - User Story 10.
+	 * Developed by Kevin Nemec in User Story 10.
 	 * Method to create a new PNG file with a width, height and color specified by the user.
 	 * @param width = The width of the picture.
 	 * @param height = The height of the picture.
 	 * @param color = The color of the picture.
 	 * @throws Exception = If anything goes wrong, we can see the cause.
 	 */
-	public void createImage(int width, int height, String color) throws Exception {
+	public void createImage(Stage stage, int width, int height, String color) throws Exception {
 		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = bufferedImage.createGraphics();
+		FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("PNG File", "*.png*");
 		
 		switch(ImageColor.valueOf(color)){
 		case RED:
@@ -41,6 +48,12 @@ public class PNGCreator {
 		
 		graphics.fillRect(0, 0, width, height);
 		
-		ImageIO.write(bufferedImage, "PNG", new File("E:/image.PNG"));
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.getExtensionFilters().add(filter);
+		File file = fileChooser.showSaveDialog(stage);
+		
+		if(!file.exists() && file != null){
+			ImageIO.write(bufferedImage, "PNG", new File(file.getAbsolutePath() + ".png"));
+		}
 	}
 }
