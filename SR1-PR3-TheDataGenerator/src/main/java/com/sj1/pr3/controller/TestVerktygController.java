@@ -85,6 +85,9 @@ public class TestVerktygController implements Initializable {
 
 	@FXML
 	private CheckBox checkBoxBigchars;
+	
+	@FXML
+	private Label outPutLengthLable;
 
 	@FXML
 	private ComboBox<?> dataBaseComboBox;
@@ -197,7 +200,9 @@ public class TestVerktygController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		outPutArea.setText("1234");
+		//Output field, and length.
+		outPutArea.setText("12341231233");
+		outPutLengthLable.setText("Length: " + outPutArea.getLength() + " characters." );
 	}
 
 }
