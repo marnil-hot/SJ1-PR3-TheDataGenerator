@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
+
+import ApplicationUtils.NumberParser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.GenerateTestData;
 import model.SaveFileText;
 
 public class TestVerktygController implements Initializable {
@@ -74,9 +77,6 @@ public class TestVerktygController implements Initializable {
 	private TextField dataBaseFld;
 
 	@FXML
-	private CheckBox checkBoxLetters;
-
-	@FXML
 	private CheckBox checkBoxNumbers;
 
 	@FXML
@@ -94,17 +94,49 @@ public class TestVerktygController implements Initializable {
 	@FXML
 	private ComboBox<?> dataBaseComboBox;
 
-	// Path and file name,format for saving output.
-	private final String FileNametxt = "TestVerktygLog.txt";
-	private final String FileNamecsv = "TestVerktygLog.csv";
+	/*
+	 * Developed by Rrahman Rexhepi - User Story 2.
+	 * 
+	 * @Generate random string = When user clicks on "Save output to file"
+	 * button.
+	 *
+	 * 
+	 */
+	@FXML
+	void generateRandomStrings(ActionEvent event) {
+		errorLabel.setText("");
+		GenerateTestData generateData = new GenerateTestData();
+		// Error Handeling
+		if (lengthFld.getText().trim().equals("")) {
+			errorLabel.setText("Please fill in a length before generating. ");
+			lengthFld.clear();
+		} else if (!NumberParser.parseLong(lengthFld.getText())) {
+			errorLabel.setText("Please fill in only numbers in Length of string.");
+			lengthFld.clear();
+			
+		} else if (!checkBoxBigchars.isSelected() && (!checkBoxNumbers.isSelected()
+				&& (!checkBoxSmallcharacters.isSelected() && (!checkBoxSpecialchars.isSelected())))) {
+			errorLabel.setText("Please select one of the alternatives in the checkboxes.");
+		} else {
+			// Update GUI
+			String result = generateData.generateTestData(Long.valueOf(lengthFld.getText()),
+					checkBoxSpecialchars.isSelected(), checkBoxNumbers.isSelected(),
+					checkBoxSmallcharacters.isSelected(), checkBoxBigchars.isSelected());
+
+			outPutArea.setText(result);
+			outPutLengthLable.setText("Length: " + outPutArea.getLength() + " characters.");
+		}
+
+	}
 
 	/*
-	 * @saveToFile Saving output to file, if there is no file create new else
-	 * continue where it last where. Supports .txt and .csv file. By: Rrahman
-	 * Rexhepi.
+	 * Developed by Rrahman Rexhepi - User Story 2.
+	 * 
+	 * @saveToFile = When user clicks on "Save output to file" button.
+	 * 
+	 * @SaveFileText = Object that needs "stage" and "String" that will get
+	 * printed out in the file. the text will come from outPutArea.
 	 */
-
-	// TODO , vrf är det , i början ? , alertDialog . + ifall det är fel .
 	@FXML
 	private void saveToFile(ActionEvent event) throws Exception {
 		errorLabel.setText("");
@@ -113,9 +145,9 @@ public class TestVerktygController implements Initializable {
 		if (outPutArea.getText().equals("")) {
 			errorLabel.setText("Please select something to generate before saving to file.");
 		} else {
-			
-			// Create.
+
 			try {
+				// Create SaveFileText class, that i will use to create file.
 				SaveFileText saveFile = new SaveFileText();
 				saveFile.saveOutPut(stage, outPutArea.getText());
 			} catch (Exception ex) {
