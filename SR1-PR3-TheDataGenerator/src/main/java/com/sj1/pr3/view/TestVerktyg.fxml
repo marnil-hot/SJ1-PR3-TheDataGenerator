@@ -103,5 +103,10 @@
          </children>
       </HBox>
       <ComboBox fx:id="dataBaseComboBox" layoutX="11.0" layoutY="325.0" prefWidth="150.0" promptText="Select what to fetch" visibleRowCount="3" />
+      <HBox layoutX="354.0" layoutY="265.0" spacing="5.0">
+         <children>
+            <Label fx:id="outPutLengthLable" text="Length: 10000 chars" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
