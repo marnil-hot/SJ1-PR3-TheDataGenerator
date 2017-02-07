@@ -21,4 +21,8 @@ public class AppUtils {
 		}
 		return true;
 	}
+	
+	public static boolean isInteger(String input){
+		return Math.ceil(Double.parseDouble(input)) == Math.floor(Double.parseDouble(input));
+	}
 }
