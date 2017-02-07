@@ -1,4 +1,4 @@
-package com.sj1.pr3.controller;
+package com.sj1.pr3.datagenerator;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,8 +29,8 @@ public class SaveToFile extends TestCase {
 
 	@Test
 	public void testFileSaver() {
-		// kolla ifall filen finns  då den är klar.
-		
+	
+		// Not done
 		
 	}
 
