@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sj1.pr3.ApplicationUtils.AppUtils;
+import com.sj1.pr3.ApplicationUtils.NumberParser;
+import com.sj1.pr3.model.GenerateRandomEmail;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -92,6 +95,39 @@ public class TestVerktygController implements Initializable {
 	
 	@FXML
 	private ComboBox<String> dataBaseComboBox;
+	
+	  @FXML
+	    void generateEmailEvent(ActionEvent event) {
+		  errorLabel.setText("");
+		  if(lengthFld.getText().trim().equals("")){
+			  errorLabel.setText("Pleace fill in a length before generating");
+		  } else if(!NumberParser.parseInteger(lengthFld.getText())){
+			  errorLabel.setText("Please fill in only numbers ");
+		  } else {
+			  
+			  int stringLength = Integer.valueOf(lengthFld.getText());
+			  
+			  if(stringLength <= 5){
+				  errorLabel.setText("Email standard is minimum 6 characters");
+			  } else if(stringLength >= 320){
+				  errorLabel.setText("Email Standard is maximum 319 characters");
+			  } else { 
+				  GenerateRandomEmail generateEmail = new GenerateRandomEmail();
+				  String emailAddress = generateEmail.generateRandomEmail(stringLength);
+				  outPutArea.setText(emailAddress);
+				  
+			  }
+			  
+			
+		  }
+
+	    }
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Developed by Kevin Nemec in User Story 5.
