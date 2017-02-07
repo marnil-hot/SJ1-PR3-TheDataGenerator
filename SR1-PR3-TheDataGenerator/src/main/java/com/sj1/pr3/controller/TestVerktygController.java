@@ -101,6 +101,7 @@ public class TestVerktygController implements Initializable {
 	 * @Generate random string = When user clicks on "Save output to file" button.
 	 * Error handling also warning if the amount is to high that will make the application freeze.
 	 * After every thing is good,  it calls on the method : @startGenerate.
+	 * @NumberParser is used as a extra check if the input is correct or not.
 	 */
 	
 	@FXML
