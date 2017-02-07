@@ -1,7 +1,5 @@
 package com.sj1.pr3.controller;
 
-import com.sj1.pr3.datagenerator.*;
-
 /**
  * Hello world!
  *

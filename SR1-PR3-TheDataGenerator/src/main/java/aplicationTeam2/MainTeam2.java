@@ -1,4 +1,4 @@
-package com.sj1.pr3.guiTeam2;
+package aplicationTeam2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class MainTeam2 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Scene.fxml"));
@@ -19,8 +19,12 @@ public class Main extends Application {
     }
 
     
-    public static void main(String[] args) {
+
+	public static void main(String[] args) {
         launch(args);
-    }
+       // RandomStringLenght p=new RandomStringLenght();
+       // RandomStringLenght.repeat(10, "a");
+        
+	}
     
 }

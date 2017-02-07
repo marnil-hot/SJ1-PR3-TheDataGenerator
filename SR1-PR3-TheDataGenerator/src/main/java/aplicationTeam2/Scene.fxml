@@ -6,27 +6,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="CreateImage" prefHeight="619.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.guiTeam2.FXController">
+<AnchorPane fx:id="CreateImage" prefHeight="619.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicationTeam2.FXController">
    <children>
       <Button fx:id="myGenerateExcel" layoutX="398.0" layoutY="424.0" mnemonicParsing="false" text="Generate Excel " />
       <TextField fx:id="myColumns" layoutX="198.0" layoutY="424.0" promptText="Columns" />
-      <TextArea fx:id="myOutput" layoutX="253.0" layoutY="123.0" prefHeight="242.0" prefWidth="370.0" promptText="Output" />
+      <TextArea fx:id="myOutput" editable="false" layoutX="253.0" layoutY="123.0" prefHeight="242.0" prefWidth="370.0" promptText="Output" />
       <Label layoutX="121.0" layoutY="7.0" prefHeight="45.0" prefWidth="396.0" text="String Generator" textAlignment="CENTER">
          <font>
             <Font name="Andale Mono" size="36.0" />
          </font></Label>
       <Label layoutX="40.0" layoutY="52.0" prefHeight="17.0" prefWidth="559.0" text="Chose Length and what characters will include then press what do you want to generate." />
-      <Label layoutX="53.0" layoutY="95.0" prefHeight="27.0" prefWidth="137.0" text="Length of string" />
-      <TextField fx:id="myLenghtofstring" layoutX="47.0" layoutY="123.0" promptText="Lengt of string " />
+      <Label layoutX="53.0" layoutY="73.0" prefHeight="27.0" prefWidth="137.0" text="Length of string" />
       <Label layoutX="376.0" layoutY="100.0" text="Output" />
-      <Button fx:id="mySavetofile" layoutX="78.0" layoutY="332.0" mnemonicParsing="false" text="Save to file" />
-      <Label layoutX="25.0" layoutY="395.0" prefHeight="18.0" prefWidth="429.0" text="To generate Excel chose row and columns than press Generate." textAlignment="CENTER">
+      <Button fx:id="mySavetofile" layoutX="78.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleOutputAction" text="Save to file" />
+      <Label layoutX="23.0" layoutY="386.0" prefHeight="18.0" prefWidth="429.0" text="To generate Excel chose row and columns than press Generate." textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="myRows" layoutX="15.0" layoutY="424.0" promptText="Rows" />
-      <Label layoutX="23.0" layoutY="468.0" prefHeight="17.0" prefWidth="474.0" text="To fetch data from Database press Fetch or if you want to save press Save." />
+      <Label layoutX="23.0" layoutY="461.0" prefHeight="17.0" prefWidth="474.0" text="To fetch data from Database press Fetch or if you want to save press Save." />
       <Button fx:id="myFeach" layoutX="69.0" layoutY="494.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" text="Feach" />
       <Button fx:id="mySave" layoutX="297.0" layoutY="494.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" text="Save" />
       <Button fx:id="myCreateImage" layoutX="479.0" layoutY="564.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="137.0" text="Create Image" />
@@ -38,11 +37,12 @@
       <TextField fx:id="myHeight" layoutX="15.0" layoutY="564.0" prefHeight="27.0" prefWidth="87.0" promptText="Height" />
       <TextField fx:id="myWidth" layoutX="115.0" layoutY="564.0" prefHeight="27.0" prefWidth="80.0" promptText="Width" />
       <ColorPicker fx:id="myColor" layoutX="253.0" layoutY="564.0" promptText="myColor" />
-      <RadioButton fx:id="myLetters" layoutX="40.0" layoutY="170.0" mnemonicParsing="false" text="Letters" />
-      <RadioButton fx:id="myNumbers" layoutX="134.0" layoutY="170.0" mnemonicParsing="false" text="Numbers" />
-      <RadioButton fx:id="mySpecialChars" layoutX="25.0" layoutY="235.0" mnemonicParsing="false" text="Special Chars" />
-      <RadioButton fx:id="mySmallChars" layoutX="150.0" layoutY="235.0" mnemonicParsing="false" text="Small Chars" />
-      <RadioButton fx:id="myBigChars" layoutX="89.0" layoutY="281.0" mnemonicParsing="false" text="Big Chars" />
+      <RadioButton fx:id="myNumbers" layoutX="19.0" layoutY="171.0" mnemonicParsing="false" text="Numbers" />
+      <RadioButton fx:id="mySpecialChars" layoutX="128.0" layoutY="171.0" mnemonicParsing="false" text="Special Chars" />
+      <RadioButton fx:id="mySmallChars" layoutX="21.0" layoutY="235.0" mnemonicParsing="false" text="Small Chars" />
+      <RadioButton fx:id="myBigChars" layoutX="156.0" layoutY="235.0" mnemonicParsing="false" text="Big Chars" />
       <Label layoutX="150.0" layoutY="597.0" prefHeight="17.0" prefWidth="329.0" text="Developed by Namir, Christoffer and Marius. " />
+      <Label fx:id="answerNr" layoutX="41.0" layoutY="109.0" prefHeight="35.0" prefWidth="187.0" />
+      <TextField fx:id="myString" layoutX="170.0" layoutY="73.0" onAction="#handleTextFieldanswerAction" promptText="Write here" />
    </children>
 </AnchorPane>
