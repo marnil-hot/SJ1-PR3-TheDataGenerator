@@ -98,12 +98,11 @@ public class TestVerktygController implements Initializable {
 
 	/*
 	 * Developed by Rrahman Rexhepi - User Story 2.
-	 * 
-	 * @Generate random string = When user clicks on "Save output to file"
-	 * button.
-	 *
-	 * 
+	 * @Generate random string = When user clicks on "Save output to file" button.
+	 * Error handling also warning if the amount is to high that will make the application freeze.
+	 * After every thing is good,  it calls on the method : @startGenerate.
 	 */
+	
 	@FXML
 	void generateRandomStrings(ActionEvent event) {
 		errorLabel.setText("");
@@ -146,6 +145,12 @@ public class TestVerktygController implements Initializable {
 
 	}
 	
+	/*
+	 * Developed by Rrahman Rexhepi - User Story 2.
+	 * @GenerateTestData , takes long value, that is how many chars the generator will generate.
+	 * It also takes all the checkBox values. After its done it sends back the result and prints it out to
+	 * the outPutArea.
+	 * */
 	public void startGenerate() {
 		GenerateTestData generateData = new GenerateTestData();
 		String result = generateData.generateTestData(Long.valueOf(lengthFld.getText()),
@@ -155,11 +160,10 @@ public class TestVerktygController implements Initializable {
 		outPutLengthLable.setText("Length: " + outPutArea.getLength() + " characters.");
 	}
 	
+	
 	/*
 	 * Developed by Rrahman Rexhepi - User Story 2.
-	 * 
 	 * @saveToFile = When user clicks on "Save output to file" button.
-	 * 
 	 * @SaveFileText = Object that needs "stage" and "String" that will get
 	 * printed out in the file. the text will come from outPutArea.
 	 */
@@ -171,7 +175,6 @@ public class TestVerktygController implements Initializable {
 		if (outPutArea.getText().equals("")) {
 			errorLabel.setText("Please select something to generate before saving to file.");
 		} else {
-
 			try {
 				// Create SaveFileText class, that i will use to create file.
 				SaveFileText saveFile = new SaveFileText();
@@ -179,7 +182,6 @@ public class TestVerktygController implements Initializable {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-
 		}
 
 	}
