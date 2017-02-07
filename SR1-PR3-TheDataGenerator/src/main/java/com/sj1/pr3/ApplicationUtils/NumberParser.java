@@ -3,8 +3,9 @@ package com.sj1.pr3.ApplicationUtils;
 
 /*
  * ErrorHandeling for NumberFormatExcepion.
- * Made by Rrahman Rexhepi.
+ * Developed by Rrahman Rexhepi.
  * Pars the input and returns true or false if it succeed or not.
+ * This parser is made for User story: 2.
  * */
 
 public class NumberParser {
