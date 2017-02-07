@@ -3,6 +3,7 @@ package com.sj1.pr3.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sj1.pr3.ApplicationUtils.AppUtils;
 import com.sj1.pr3.model.PNGCreator;
 
 import javafx.collections.FXCollections;
@@ -102,43 +103,70 @@ public class TestVerktygController implements Initializable {
 		Stage stage = (Stage)this.errorLabel.getScene().getWindow();
 		
 		if(witdhColorFld.getText().length() == 0 && heightColorFld.getText().length() == 0 && colorsComboBox.getValue() == null){
-			errorLabel.setText("");
-			errorLabel.setText("You must fill in all 3 fields");
+			errorLabel.setText("You must specify width, height and color");
 		}
-		else if(witdhColorFld.getText().length() == 0 || Integer.parseInt(witdhColorFld.getText()) > 1920){
+		
+		else if(witdhColorFld.getText().length() == 0 || !AppUtils.isNumber(witdhColorFld.getText())){
 			if(witdhColorFld.getText().length() == 0){
-				errorLabel.setText("");
 				errorLabel.setText("You must specify a width");
 			}
 			else{
-				errorLabel.setText("");
-				errorLabel.setText("Width can not exceed 1920");
+				errorLabel.setText("Width must be a number or a non-decimal value");
 			}
 		}
-		else if(heightColorFld.getText().length() == 0 || Integer.parseInt(heightColorFld.getText()) > 1080){
+		
+		else if(heightColorFld.getText().length() == 0 || !AppUtils.isNumber(heightColorFld.getText())){
 			if(heightColorFld.getText().length() == 0){
-				errorLabel.setText("");
 				errorLabel.setText("You must specify a height");
 			}
 			else{
-				errorLabel.setText("");
-				errorLabel.setText("Height can not exceed 1080");
+				errorLabel.setText("Height must be a number or a non-decimal value");
 			}
 		}
+		
 		else if(colorsComboBox.getValue() == null){
-			errorLabel.setText("");
 			errorLabel.setText("You must select a color");
 		}
+		
 		else{
-			PNGCreator creator = new PNGCreator();
-			int width = Integer.parseInt(witdhColorFld.getText());
-			int height = Integer.parseInt(heightColorFld.getText());
-			String color = colorsComboBox.getValue().toUpperCase();
-			try{
-				creator.createImage(stage, width, height, color);
+			if (Integer.parseInt(witdhColorFld.getText()) > 1920 || !AppUtils.isInteger(witdhColorFld.getText())) {
+				if(Integer.parseInt(witdhColorFld.getText()) > 1920){
+					errorLabel.setText("Width can not exceed 1920");
+				}
+				else{
+					errorLabel.setText("Width can not contain decimal numbers");
+				}
 			}
-			catch(Exception ex){
-				errorLabel.setText("Canceled while saving file");
+			
+			else if (Integer.parseInt(witdhColorFld.getText()) < 1) {
+				errorLabel.setText("Width can not be lower than 1");
+			}
+			
+			else if (Integer.parseInt(heightColorFld.getText()) > 1080 || !AppUtils.isInteger(heightColorFld.getText())) {
+				if(Integer.parseInt(heightColorFld.getText()) > 1080){
+					errorLabel.setText("Height can not exceed 1080");
+				}
+				else{
+					errorLabel.setText("Height can not contain decimal numbers");
+				}
+			}
+			
+			else if (Integer.parseInt(heightColorFld.getText()) < 1) {
+				errorLabel.setText("Height can not be lower than 1");
+			}
+			
+			else {
+				errorLabel.setText("");
+				PNGCreator creator = new PNGCreator();
+				int width = Integer.parseInt(witdhColorFld.getText());
+				int height = Integer.parseInt(heightColorFld.getText());
+				String color = colorsComboBox.getValue().toUpperCase();
+				try {
+					creator.createImage(stage, width, height, color);
+				} 
+				catch (Exception ex) {
+					ex.printStackTrace();
+				}
 			}
 		}
 	}
