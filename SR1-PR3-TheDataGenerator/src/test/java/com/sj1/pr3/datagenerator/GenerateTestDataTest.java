@@ -14,7 +14,7 @@ import junit.framework.TestCase;
  * if it fails the generator does not generate exactly what i want it to do.
  * */
 
-public class DataGeneratorTest extends TestCase {
+public class GenerateTestDataTest extends TestCase {
 
 	private static int lengtOfRandom = 50;
 	private static int lengtOfNumber = 5;
@@ -22,7 +22,7 @@ public class DataGeneratorTest extends TestCase {
 	public boolean parseLong;
 	public long longValue;
 
-	public DataGeneratorTest(String name) {
+	public GenerateTestDataTest(String name) {
 		super(name);
 	}
 
