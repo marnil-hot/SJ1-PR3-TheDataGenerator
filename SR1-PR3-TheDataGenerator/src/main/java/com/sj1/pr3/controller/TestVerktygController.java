@@ -1,27 +1,28 @@
 package com.sj1.pr3.controller;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javax.swing.JOptionPane;
 
-import ApplicationUtils.NumberParser;
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import com.sj1.pr3.ApplicationUtils.NumberParser;
+import com.sj1.pr3.model.GenerateTestData;
+import com.sj1.pr3.model.SaveFileText;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import model.GenerateTestData;
-import model.SaveFileText;
+
 
 public class TestVerktygController implements Initializable {
 
@@ -93,6 +94,7 @@ public class TestVerktygController implements Initializable {
 
 	@FXML
 	private ComboBox<?> dataBaseComboBox;
+	String result = "";
 
 	/*
 	 * Developed by Rrahman Rexhepi - User Story 2.
@@ -111,24 +113,48 @@ public class TestVerktygController implements Initializable {
 			errorLabel.setText("Please fill in a length before generating. ");
 			lengthFld.clear();
 		} else if (!NumberParser.parseLong(lengthFld.getText())) {
-			errorLabel.setText("Please fill in only numbers in Length of string.");
+			errorLabel.setText("Please fill in only numbers in Length of string field.");
 			lengthFld.clear();
-			
+
 		} else if (!checkBoxBigchars.isSelected() && (!checkBoxNumbers.isSelected()
 				&& (!checkBoxSmallcharacters.isSelected() && (!checkBoxSpecialchars.isSelected())))) {
 			errorLabel.setText("Please select one of the alternatives in the checkboxes.");
 		} else {
-			// Update GUI
-			String result = generateData.generateTestData(Long.valueOf(lengthFld.getText()),
-					checkBoxSpecialchars.isSelected(), checkBoxNumbers.isSelected(),
-					checkBoxSmallcharacters.isSelected(), checkBoxBigchars.isSelected());
 
-			outPutArea.setText(result);
-			outPutLengthLable.setText("Length: " + outPutArea.getLength() + " characters.");
+			if (Long.valueOf(lengthFld.getText()) >= 70000) {
+				// Alert dialog.
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Team4-Testverktyg  Generate Data.");
+				alert.setHeaderText("Generating huge amount of test data!");
+				alert.setContentText("Are you sure you want to generate this huge amount of test data?\nThe application have to generate for a long time!");
+				ButtonType buttonConfirm = new ButtonType("Confirm");
+				ButtonType cancelConfirm = new ButtonType("Cancel");
+				alert.getButtonTypes().setAll(buttonConfirm, cancelConfirm); 
+				Optional<ButtonType> result = alert.showAndWait();
+				if (result.get() == buttonConfirm) {
+					// Update GUI
+					startGenerate();
+				} else {
+					// Cancel pressed do nothing.
+				}
+
+			} else {
+				startGenerate();
+			}
+
 		}
 
 	}
-
+	
+	public void startGenerate() {
+		GenerateTestData generateData = new GenerateTestData();
+		String result = generateData.generateTestData(Long.valueOf(lengthFld.getText()),
+				checkBoxSpecialchars.isSelected(), checkBoxNumbers.isSelected(),
+				checkBoxSmallcharacters.isSelected(), checkBoxBigchars.isSelected());
+		outPutArea.setText(result);
+		outPutLengthLable.setText("Length: " + outPutArea.getLength() + " characters.");
+	}
+	
 	/*
 	 * Developed by Rrahman Rexhepi - User Story 2.
 	 * 
