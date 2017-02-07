@@ -23,7 +23,7 @@ public class PNGCreator {
 	 * @param color = The color of the picture.
 	 * @throws Exception = If anything goes wrong, we can see the cause.
 	 */
-	public void createImage(Stage stage, int width, int height, String color) throws Exception {
+	public void createImage(Stage stage, int width, int height, String color) throws Exception, NullPointerException {
 		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = bufferedImage.createGraphics();
 		FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("PNG File", "*.png*");
@@ -54,6 +54,9 @@ public class PNGCreator {
 		
 		if(!file.exists() && file != null){
 			ImageIO.write(bufferedImage, "PNG", new File(file.getAbsolutePath() + ".png"));
+		}
+		else{
+			
 		}
 	}
 }
