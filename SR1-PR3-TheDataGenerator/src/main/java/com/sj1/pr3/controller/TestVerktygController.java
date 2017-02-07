@@ -138,7 +138,7 @@ public class TestVerktygController implements Initializable {
 				creator.createImage(stage, width, height, color);
 			}
 			catch(Exception ex){
-				ex.printStackTrace();
+				errorLabel.setText("Canceled while saving file");
 			}
 		}
 	}
