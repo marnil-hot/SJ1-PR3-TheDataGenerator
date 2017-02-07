@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="900.0" stylesheets="@gui.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.GUIController">
+   <center>
+      <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <TextArea fx:id="textArea" editable="false" prefHeight="300.0" prefWidth="900.0" promptText="Output" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextArea>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <ToggleButton fx:id="btnText" contentDisplay="CENTER" minHeight="45.0" mnemonicParsing="false" onAction="#selectTextButtonAction" prefHeight="45.0" prefWidth="200.0" text="Text">
+                     <font>
+                        <Font size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="btnEmail" contentDisplay="CENTER" minHeight="45.0" mnemonicParsing="false" onAction="#selectEmailButtonAction" prefHeight="45.0" prefWidth="200.0" text="Email">
+                     <font>
+                        <Font size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="btnString" contentDisplay="CENTER" minHeight="45.0" mnemonicParsing="false" onAction="#selectStringButtonAction" prefHeight="45.0" prefWidth="200.0" text="String">
+                     <font>
+                        <Font size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="btnPNG" mnemonicParsing="false" onAction="#selectPNGButtonAction" prefHeight="45.0" prefWidth="200.0" text="PNG">
+                     <font>
+                        <Font size="14.0" />
+                     </font></ToggleButton>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+            <Label fx:id="errorIntLabel" alignment="CENTER" text="Please enter a valid integer" textFill="#d24d57">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <StackPane>
+               <children>
+                  <HBox fx:id="PNGOptionsContainer" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="widthTextFld" prefHeight="40.0" promptText="Width in px" />
+                        <TextField fx:id="heightTextFld" prefHeight="40.0" promptText="Height in px" />
+                        <ColorPicker fx:id="colorPicker" prefHeight="40.0" prefWidth="144.0" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="emailOptionsContainer" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="emailTextFld" alignment="CENTER" maxWidth="100.0" minHeight="45.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="100.0" promptText="Length">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="textOptionsContainer" alignment="CENTER" prefHeight="240.0" prefWidth="900.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="wordsTextFld" alignment="CENTER" maxWidth="100.0" minHeight="45.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="100.0" promptText="Number" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="radioBtnWords" mnemonicParsing="false" text="Words" textFill="#4d5053" />
+                              <RadioButton fx:id="radioBtnLetters" mnemonicParsing="false" text="Letters" textFill="#4d5053" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <Button fx:id="btnResult" alignment="CENTER" mnemonicParsing="false" onAction="#getResultButtonAction" text="Randomize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="60.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="18.0" left="50.0" right="50.0" top="18.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Label id="titleLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="100.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="600.0" prefHeight="100.0" prefWidth="600.0" text="The Data Generator" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
