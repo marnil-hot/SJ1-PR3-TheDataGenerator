@@ -58,11 +58,11 @@ public class SaveFileText {
 
 				// Create or add new text to the file.
 				if (filetxt.exists()) {
-					bufferedWriter.write(", end" + content);
+					bufferedWriter.write(content);
 
 				} else {
 					filetxt.createNewFile();
-					bufferedWriter.write(content);
+					bufferedWriter.write("," + content);
 				}
 
 			} catch (IOException e) {
