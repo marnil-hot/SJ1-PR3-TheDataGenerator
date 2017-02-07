@@ -2,12 +2,18 @@ package com.sj1.pr3.model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import javafx.scene.shape.Rectangle;
+
 public class PNGCreator {
+	
+	private File file;
 	
 	/**
 	 * Developed by Kevin Nemec - User Story 10.
@@ -21,7 +27,7 @@ public class PNGCreator {
 		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics = bufferedImage.createGraphics();
 		
-		switch(ImageColor.valueOf(color)){
+		switch(ImageColor.valueOf(color)) {
 		case RED:
 			graphics.setPaint(Color.RED);
 			break;
@@ -41,6 +47,16 @@ public class PNGCreator {
 		
 		graphics.fillRect(0, 0, width, height);
 		
-		ImageIO.write(bufferedImage, "PNG", new File("C:/Users/Public/Documents/generated.png"));
+		file = new File("C:/Users/Public/Documents/generated.png");
+		ImageIO.write(bufferedImage, "PNG", file);
+
+	}
+	
+	public BufferedImage loadImageFromPath(String path) throws IOException {
+		return ImageIO.read(new File(path));
+	}
+	
+	public String getFilePath(){
+		return file.getAbsolutePath();
 	}
 }
