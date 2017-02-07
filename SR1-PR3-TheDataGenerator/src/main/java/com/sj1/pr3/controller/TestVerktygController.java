@@ -166,6 +166,7 @@ public class TestVerktygController implements Initializable {
 				} 
 				catch (Exception ex) {
 					ex.printStackTrace();
+					errorLabel.setText("File not created - Canceled by user");
 				}
 			}
 		}
