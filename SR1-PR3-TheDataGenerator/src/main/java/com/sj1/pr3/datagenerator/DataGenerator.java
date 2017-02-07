@@ -5,6 +5,5 @@ public class DataGenerator {
 	public static String randomData() {
 		//Guaranteed random data by dice roll
 		return "4";
-		
 	}
 }

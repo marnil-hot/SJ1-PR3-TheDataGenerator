@@ -1,4 +1,4 @@
-package com.sj1.pr3.datagenerator;
+package com.sj1.pr3.controller;
 
 import java.util.Random;
 
@@ -10,17 +10,16 @@ public class GibberishText {
 
     // Put in the specified characters and the length to generate some gibberish
 
-    public static char[] gibberize(char[] characters, int length) {
+    private static String[] wordList = { "once", "upon", "a", "time", "there", "was", "cow", "called", "moo",
+                                         "he", "she", "enjoyed", "eating", "green", "grass", "every", "day" };
+    private static String[] specialChars =  { "?", ",", "." };
+    private Random r = new Random();
 
-        Random r = new Random();
-        char[] gibberText = new char[length];
+    public GibberishText() {
 
-        // Create the gibberized gibberish
-        for (int i = 0; i < gibberText.length; i++) {
-            int randomCharIndex = r.nextInt(characters.length);
-            gibberText[i] = characters[randomCharIndex];
-        }
-
-        return gibberText;
     }
+
+
+
+
 }
