@@ -1,4 +1,5 @@
-package ApplicationUtils;
+package com.sj1.pr3.ApplicationUtils;
+
 
 /*
  * ErrorHandeling for NumberFormatExcepion.
