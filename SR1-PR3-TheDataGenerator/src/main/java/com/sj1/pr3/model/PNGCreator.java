@@ -49,14 +49,21 @@ public class PNGCreator {
 		
 		file = new File("C:/Users/Public/Documents/generated.png");
 		ImageIO.write(bufferedImage, "PNG", file);
-
 	}
 	
 	public BufferedImage loadImageFromPath(String path) throws IOException {
 		return ImageIO.read(new File(path));
 	}
 	
-	public String getFilePath(){
+	public String getAbsoluteFilePath(){
 		return file.getAbsolutePath();
+	}
+	
+	public String getFilePath(){
+		return file.getPath();
+	}
+	
+	public String getFileName(){
+		return file.getName();
 	}
 }
