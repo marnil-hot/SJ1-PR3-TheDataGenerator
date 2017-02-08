@@ -21,7 +21,7 @@
       <Label layoutX="40.0" layoutY="52.0" prefHeight="17.0" prefWidth="559.0" text="Chose Length and what characters will include then press what do you want to generate." />
       <Label layoutX="53.0" layoutY="73.0" prefHeight="27.0" prefWidth="137.0" text="Length of string" />
       <Label layoutX="376.0" layoutY="100.0" text="Output" />
-      <Button fx:id="mySavetofile" layoutX="12.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleOutputAction" text="Save to file" />
+      <Button fx:id="mySavetofile" layoutX="16.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleOutputAction" text="Save to file" />
       <Label layoutX="23.0" layoutY="386.0" prefHeight="18.0" prefWidth="429.0" text="To generate Excel chose row and columns than press Generate." textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="14.0" />
@@ -49,5 +49,6 @@
       <TextField fx:id="myString" layoutX="170.0" layoutY="73.0" onAction="#handleTextFieldanswerAction" promptText="Write here" />
       <Button fx:id="gibbutton" layoutX="140.0" layoutY="294.0" mnemonicParsing="false" onAction="#gibberishEvent" prefHeight="31.0" prefWidth="93.0" text="GIbberish" />
       <Label fx:id="errorMessage" layoutX="17.0" layoutY="365.0" textFill="RED" />
+      <Button fx:id="Generate" layoutX="454.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleOutputAction" text="Generate" />
    </children>
 </AnchorPane>

@@ -1,3 +1,4 @@
+
 package aplicationTeam2;
 
 import java.util.Random;
@@ -44,7 +45,3 @@ public class GibberishGenerator {
 	}
 
 }
-
-	
-	
-
