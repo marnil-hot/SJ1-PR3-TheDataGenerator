@@ -241,6 +241,9 @@ public class TestVerktygController implements Initializable {
 				catch (Exception ex) {
 					ex.printStackTrace();
 				}
+			}
+		}
+	}
 	/*
 	 * Developed by Rrahman Rexhepi - User Story 2.
 	 * @saveToFile = When user clicks on "Save output to file" button.
