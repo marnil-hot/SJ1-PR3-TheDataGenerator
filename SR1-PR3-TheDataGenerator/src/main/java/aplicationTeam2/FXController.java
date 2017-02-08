@@ -129,7 +129,7 @@ void gibberishEvent(ActionEvent event) {
 		errorMessage.setText("Please fill in length of a string.");
 		myString.clear();
 	}  else {
-		// Error handeling if the input is a integer.
+		// Error handle if the input is a integer.
 		try {
 			GibberishGenerator gibberishGenerator = new GibberishGenerator();
 			String result = gibberishGenerator.generateRandomWords(Integer.parseInt(myString.getText()));
