@@ -55,6 +55,13 @@ public class FXController implements Initializable {
     private Button myCreateImage;
     @FXML
     private ColorPicker myColor;
+    @FXML
+    private Button gibbutton;
+	@FXML
+	private Label errorMessage;
+	@FXML
+	private Button Generate;
+
  
  
  
@@ -66,8 +73,53 @@ private void handleButtonAction(ActionEvent event) throws IOException {
     
    
 }
+
+@SuppressWarnings("static-access")
+@FXML
+private void handleTextFieldanswerAction(ActionEvent event) {
+	System.out.println("Done");
+	answerNr.setText("Your number is:  " + myString.getText());
+	// RandomStringLenghtBigChars.generateRandom(myString.getAnchor());
+	RandomStringLenghtBigChars myrandom = new RandomStringLenghtBigChars();
+	myrandom.generateRandom(myString.getLength());
+	// myOutput.textProperty().bind(myrandom.generateRandom(8));
+	System.out.println(myrandom);
+
+}
+
+/*
+ * Created by Namir Wesaf. User story : 8 Generate gibberish words.
+ * Creates object of GibberishGenerator.
+ * Takes integer value from the field "myString" then get text from the gibberishGenerator class.
+ * The result will be printed in to myOutput.
+ */
+@FXML
+void gibberishEvent(ActionEvent event) {
+	errorMessage.setText("");
+	
+	if (myString.getText().trim().equals("")) {
+		errorMessage.setText("Please fill in length of a string.");
+		myString.clear();
+	}  else {
+		// Error handeling if the input is a integer.
+		try {
+			GibberishGenerator gibberishGenerator = new GibberishGenerator();
+			String result = gibberishGenerator.generateRandomWords(Integer.parseInt(myString.getText()));
+			myOutput.setText(result);
+		} catch (final NumberFormatException ex) {
+			errorMessage.setText("Please fill in a valid number in length of a string.");
+			myString.clear();
+		}
+	}
+	
+	
+}
+
+
+
+
 /* Developed by Marius in User Story .
-Method to fill a number for how many times you wish to generate the String and to show in output */
+Method to fill a number for how many times you wish to generate the String and to show in output 
 @FXML
 private void handleTextFieldanswerAction(ActionEvent event) {
     //System.out.println("Done");
@@ -80,7 +132,7 @@ private void handleTextFieldanswerAction(ActionEvent event) {
 		 answerNr.setText("Write a number.");
 	 }
    
-}
+}*/
 
 /* Developed by Marius in User Story .
  Method which save to a file */
@@ -107,10 +159,9 @@ private void handleOutputAction(ActionEvent event) throws IOException {
             }       
             		else  {                     
                     answerNr.setText("Göra om.");
+            		}
             }
           
-        }
-
 
 
 @Override
