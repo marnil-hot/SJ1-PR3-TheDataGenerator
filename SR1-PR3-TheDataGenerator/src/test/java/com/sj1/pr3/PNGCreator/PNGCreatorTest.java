@@ -17,6 +17,7 @@ import junit.framework.TestCase;
  */
 public class PNGCreatorTest extends TestCase {
 
+	private static final String input = "12345";
 	
 	public PNGCreatorTest(String name){
 		super(name);
