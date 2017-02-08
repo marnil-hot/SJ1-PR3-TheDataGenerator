@@ -15,7 +15,7 @@ public class GenerateGibberish {
 
 		for (int i = 0; i < length; i++) { /* */
 			sb.append(alphabet.charAt(random.nextInt(alphabet.length())));
-			result = result + sb.toString();
+			result = sb.toString();
 		}
 		System.out.println(result);
 		return result;
