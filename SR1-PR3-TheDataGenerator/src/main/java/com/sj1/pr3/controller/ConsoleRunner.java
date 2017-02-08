@@ -10,8 +10,6 @@ import java.util.Arrays;
  */
 public class ConsoleRunner {
 
-    private static char[] charset = "abcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
-
     private static String[] wordList = { "once", "upon", "a", "time", "there", "was", "cow", "called", "moo",
             "he", "she", "enjoyed", "eating", "green", "grass", "every", "day", ".", ",", "?"};
 
