@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import com.sj1.pr3.datagenerator.PNGFile;
 import com.sj1.pr3.datagenerator.RandomMailGenerator;
-import com.sj1.pr3.datagenerator.SavePNGFunction;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +19,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -73,8 +71,6 @@ public class GUIController implements Initializable {
 	private int width;
 	private int height;
 	private Color color;
-	private PNGFile pngFile;
-	private WritableImage writeableImage; 
 	
 	@FXML
 	public void selectTextButtonAction(ActionEvent event) {
@@ -171,34 +167,29 @@ public class GUIController implements Initializable {
 		}
 		
 		if (btnPNG.isSelected()) {
-			
-	    	try	{
+
+			try	{
 				width=Integer.parseInt(widthTextFld.getText());
 				height=Integer.parseInt(heightTextFld.getText());
-	    		System.out.println("Dimensions: " + height + "x" + width + "px");
 				color = colorPicker.getValue();
-				pngFile = new PNGFile(width, height, color);
-				
-				writeableImage = SavePNGFunction.createWritableImage(pngFile);
-				
-				SavePNGFunction.saveAsPNG(writeableImage);
+				PNGFile.createPNG(width, height, color);
 
+				//Create new scene for displaying the image
 				ImageView imageView = new ImageView();        
-				imageView.setImage(writeableImage);
-
+				imageView.setImage(PNGFile.writableImage);
 				StackPane root = new StackPane();
 				root.getChildren().add(imageView);
-				Scene scene = new Scene(root, ((int) writeableImage.getWidth()), ((int) writeableImage.getHeight()));
-				
-				//Take snapshot of the scene
-				writeableImage = scene.snapshot(null);
+				Scene scene = new Scene(root, PNGFile.writableImage.getWidth(), PNGFile.writableImage.getHeight());
+
+				//Take snapshot of the scene 
+				PNGFile.writableImage = scene.snapshot(null);
 				Stage stage = new Stage();
-				stage.setTitle("My PNG Stage");
+				stage.setTitle("My PNG File");
 				stage.setScene(scene);
 				stage.show();	
-				
-	    	}	catch (NumberFormatException e) {
-	    		errorIntLabel.setVisible(true);
+
+			}	catch (NumberFormatException e) {
+				errorIntLabel.setVisible(true);
 				errorIntLabel.setText("Invalid input");	
 				if (widthTextFld.getText().isEmpty() || heightTextFld.getText().isEmpty()) {
 					errorIntLabel.setVisible(true);
