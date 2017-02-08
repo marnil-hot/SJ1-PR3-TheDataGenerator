@@ -8,14 +8,11 @@ import java.util.Random;
 
 public class GibberishText {
 
-    // Put in the specified characters and the length to generate some gibberish
-
-    public static String[] getWordList() {
-        return wordList;
-    }
-
+    // Wordlist for the gibberish generator
     private static String[] wordList = { "once", "upon", "a", "time", "there", "was", "cow", "called", "moo",
                                          "he", "she", "enjoyed", "eating", "green", "grass", "every", "day", ".", ",", "?"};
+
+    // Method to create some gibberish
 
     public static String[] gibberize(String[] words, int length) {
         Random r = new Random();
@@ -29,6 +26,8 @@ public class GibberishText {
         return gibberText;
     }
 
-
+    public static String[] getWordList() {
+        return wordList;
+    }
 
 }
