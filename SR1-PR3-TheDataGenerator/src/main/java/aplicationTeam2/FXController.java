@@ -57,10 +57,10 @@ public class FXController implements Initializable {
     private ColorPicker myColor;
     @FXML
     private Button gibbutton;
-	@FXML
-	private Label errorMessage;
-	@FXML
-	private Button Generate;
+	  @FXML
+	  private Label errorMessage;
+	  @FXML
+	  private Button Generate;
 
  
  
@@ -161,8 +161,7 @@ private void handleOutputAction(ActionEvent event) throws IOException {
                     answerNr.setText("Göra om.");
             		}
             }
-          
-
+    
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
