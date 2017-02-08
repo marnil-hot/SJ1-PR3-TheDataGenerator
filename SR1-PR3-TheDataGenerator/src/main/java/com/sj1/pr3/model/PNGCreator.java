@@ -2,8 +2,10 @@ package com.sj1.pr3.model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -14,6 +16,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class PNGCreator {
+	
+	private File file;
 	
 	/**
 	 * Developed by Kevin Nemec in User Story 10 and Edited/Extended by Kevin Nemec in User Story 11.
@@ -28,7 +32,7 @@ public class PNGCreator {
 		Graphics2D graphics = bufferedImage.createGraphics();
 		FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("PNG File", "*.png*");
 		
-		switch(ImageColor.valueOf(color)){
+		switch(ImageColor.valueOf(color)) {
 		case RED:
 			graphics.setPaint(Color.RED);
 			break;
@@ -55,8 +59,4 @@ public class PNGCreator {
 		if(!file.exists() && file != null){
 			ImageIO.write(bufferedImage, "PNG", new File(file.getAbsolutePath() + ".png"));
 		}
-		else{
-			
-		}
-	}
 }

@@ -16,8 +16,7 @@ import junit.framework.TestCase;
  * code to get the stage in here, it's connected straight to the GUI and should be done with another form of testing (User case testing).
  */
 public class PNGCreatorTest extends TestCase {
-	
-	private static final String input = "12345";
+
 	
 	public PNGCreatorTest(String name){
 		super(name);

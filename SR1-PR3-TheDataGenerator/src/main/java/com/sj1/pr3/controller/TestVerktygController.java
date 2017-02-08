@@ -105,7 +105,7 @@ public class TestVerktygController implements Initializable {
 		if(witdhColorFld.getText().length() == 0 && heightColorFld.getText().length() == 0 && colorsComboBox.getValue() == null){
 			errorLabel.setText("You must specify width, height and color");
 		}
-		
+    
 		else if(witdhColorFld.getText().length() == 0 || !AppUtils.isNumber(witdhColorFld.getText())){
 			if(witdhColorFld.getText().length() == 0){
 				errorLabel.setText("You must specify a width");
@@ -166,7 +166,6 @@ public class TestVerktygController implements Initializable {
 				} 
 				catch (Exception ex) {
 					ex.printStackTrace();
-					errorLabel.setText("File not created - Canceled by user");
 				}
 			}
 		}
