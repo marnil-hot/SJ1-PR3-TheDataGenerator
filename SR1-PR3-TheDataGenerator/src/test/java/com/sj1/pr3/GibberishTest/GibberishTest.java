@@ -11,7 +11,7 @@ import junit.framework.TestCase;
  * Gibberish generator creates word depends on how many the user want to generate.
  * For this test did so i counted the (spaces) between the words to count how many words where generated.
  * The size should always be the same as the space counter.
- * I use the spaceDetector as a char cointain a space inside it then loop the string to count how many words they are.
+ * I use the spaceDetector as a char contain a space inside it then loop the string to count how many words they are.
  * */
 public class GibberishTest extends TestCase {
 
