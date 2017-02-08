@@ -74,16 +74,18 @@ private void handleButtonAction(ActionEvent event) throws IOException {
    
 }
 
-@SuppressWarnings("static-access")
+
 @FXML
 private void handleTextFieldanswerAction(ActionEvent event) {
-	System.out.println("Done");
+	if (myString.getText().trim().equals("")) {
+		errorMessage.setText("Please fill in length of a string.");
+		myString.clear();
+		}
+	else{
 	answerNr.setText("Your number is:  " + myString.getText());
-	// RandomStringLenghtBigChars.generateRandom(myString.getAnchor());
-	RandomStringLenghtBigChars myrandom = new RandomStringLenghtBigChars();
-	myrandom.generateRandom(myString.getLength());
-	// myOutput.textProperty().bind(myrandom.generateRandom(8));
-	System.out.println(myrandom);
+	myString.clear();
+	}
+
 
 }
 
@@ -114,7 +116,111 @@ void gibberishEvent(ActionEvent event) {
 	
 	
 }
+/**Created by Marius. User story :5
+Creates object of String
+Takes integer value from the field "myString" then get text from the this class.
+The result will be printed in to myOutput.
+ */
 
+  		@FXML
+		private void handleBigCharRadioButtonAction(ActionEvent event) {
+  					errorMessage.setText("");
+  				
+  					if (myString.getText().trim().equals("")) {
+  						answerNr.setText("Please fill in length of a string.");
+  						myString.clear();
+	 	}
+	 	else{
+	 		try{
+	 			SBigChars randombigChar = new SBigChars();
+	 			String resultBigChar=randombigChar.gBigChars(Integer.parseInt(myString.getText()));
+	 			myOutput.setText(resultBigChar);
+	 		}
+	 		catch (final NumberFormatException ex) {
+				errorMessage.setText("Please fill in a valid number in length of a string.");
+				myString.clear();
+	 		
+	 			}
+	 		}
+  		}
+  		
+  		/**Created by Marius. User story :5
+  		Creates object of String
+  		Takes integer value from the field "myString" then get text from the this class.
+  		The result will be printed in to myOutput.*/
+  		@FXML
+		private void handleNumbersRadioButtonAction(ActionEvent event) {
+  					errorMessage.setText("");
+  				
+  					if (myString.getText().trim().equals("")) {
+  						answerNr.setText("Please fill in length of a string.");
+  						myString.clear();
+	 	}
+	 	else{
+	 		try{
+	 			SNumbers randomNumbers = new SNumbers();
+	 			String resultNumbers=randomNumbers.gNumbers(Integer.parseInt(myString.getText()));
+	 			myOutput.setText(resultNumbers);
+	 		}
+	 		catch (final NumberFormatException ex) {
+				errorMessage.setText("Please fill in a valid number in length of a string.");
+				myString.clear();
+	 		
+	 			}
+	 		}
+  		}
+  		/**Created by Marius. User story :5
+  		Creates object of String
+  		Takes integer value from the field "myString" then get text from the this class.
+  		The result will be printed in to myOutput.*/
+  		@FXML
+		private void handleSpeciallCharRadioButtonAction(ActionEvent event) {
+  					errorMessage.setText("");
+  				
+  					if (myString.getText().trim().equals("")) {
+  						answerNr.setText("Please fill in length of a string.");
+  						myString.clear();
+	 	}
+	 	else{
+	 		try{
+	 			SSpeciallChars randomSpeciallChar = new SSpeciallChars();
+	 			String resultSpeciallChar=randomSpeciallChar.gSpeciallChars(Integer.parseInt(myString.getText()));
+	 			myOutput.setText(resultSpeciallChar);
+	 		}
+	 		catch (final NumberFormatException ex) {
+				errorMessage.setText("Please fill in a valid number in length of a string.");
+				myString.clear();
+	 		
+	 			}
+	 		}
+  		}
+  		/**Created by Marius. User story :5
+  		Creates object of String
+  		Takes integer value from the field "myString" then get text from the this class.
+  		The result will be printed in to myOutput.*/
+  		
+  		
+  		@FXML
+		private void handleSmallCharRadioButtonAction(ActionEvent event) {
+  					errorMessage.setText("");
+  				
+  					if (myString.getText().trim().equals("")) {
+  						answerNr.setText("Please fill in length of a string.");
+  						myString.clear();
+	 	}
+	 	else{
+	 		try{
+	 			SSmallChars randomSmallChar = new SSmallChars();
+	 			String resultSmallChar=randomSmallChar.gSmallChars(Integer.parseInt(myString.getText()));
+	 			myOutput.setText(resultSmallChar);
+	 		}
+	 		catch (final NumberFormatException ex) {
+				errorMessage.setText("Please fill in a valid number in length of a string.");
+				myString.clear();
+	 		
+	 			}
+	 		}
+  		}
 
 
 
