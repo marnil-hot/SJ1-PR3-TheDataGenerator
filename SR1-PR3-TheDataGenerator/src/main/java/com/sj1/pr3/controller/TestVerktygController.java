@@ -162,6 +162,7 @@ public class TestVerktygController implements Initializable {
 				String color = colorsComboBox.getValue().toUpperCase();
 				try {
 					creator.createImage(width, height, color);
+					errorLabel.setText("File Creates Successfully! File path: " + "\n" + creator.getAbsoluteFilePath());
 				} 
 				catch (Exception ex) {
 					ex.printStackTrace();
