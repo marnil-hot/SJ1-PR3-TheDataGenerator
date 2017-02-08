@@ -19,7 +19,7 @@ public class PNGCreatorTest extends TestCase {
 	private static final int EXPECTED_IMAGE_HEIGHT = 100;
 	private static final int UNEXPECTED_IMAGE_WIDTH = 10;
 	private static final int UNEXPECTED_IMAGE_HEIGHT = 10;
-	private static final String EXPECTED_FILE_ABSOLUTE_PATH = "generated.png";
+	private static final String EXPECTED_FILE_NAME = "generated.png";
 	private PNGCreator creator;
 	
 	public PNGCreatorTest(String name){
@@ -80,20 +80,6 @@ public class PNGCreatorTest extends TestCase {
 	public void testGetAbsolutePath() throws Exception {
 		creator.createImage(40, 40, "RED");
 		File file = new File(creator.getAbsoluteFilePath());
-		Assert.assertEquals(EXPECTED_FILE_ABSOLUTE_PATH, file.getName());
-	}
-	
-	/**
-	 * Need this method here to make use of our interface. Writing unit tests for the actual methods above.
-	 */
-	public void getFileName() {
-		
-	}
-	
-	/**
-	 * Need this method here to make use of our interface. Writing unit tests for the actual methods above.
-	 */
-	public void getFilePath(){
-		
+		Assert.assertEquals(EXPECTED_FILE_NAME, file.getName());
 	}
 }
