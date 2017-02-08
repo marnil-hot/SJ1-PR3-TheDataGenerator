@@ -21,9 +21,8 @@ public class ConsoleRunner {
         System.out.println( "Let's get some of that random data: " + DataGenerator.randomData() );
 
 
-        for (String url : GibberishText.gibberize(wordList, 200)) {
+        for (String url : GibberishText.gibberize(wordList, 20))
             System.out.print(url + " ");
-        }
 
     }
 }

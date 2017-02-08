@@ -10,6 +10,10 @@ public class GibberishText {
 
     // Put in the specified characters and the length to generate some gibberish
 
+    public static String[] getWordList() {
+        return wordList;
+    }
+
     private static String[] wordList = { "once", "upon", "a", "time", "there", "was", "cow", "called", "moo",
                                          "he", "she", "enjoyed", "eating", "green", "grass", "every", "day", ".", ",", "?"};
 
