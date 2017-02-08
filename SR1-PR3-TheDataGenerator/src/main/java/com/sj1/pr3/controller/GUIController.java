@@ -3,12 +3,14 @@ package com.sj1.pr3.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sj1.pr3.datagenerator.DataGenerator;
+import com.sj1.pr3.datagenerator.PNGFile;
 import com.sj1.pr3.datagenerator.RandomMailGenerator;
+import com.sj1.pr3.datagenerator.SavePNGFunction;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
@@ -17,8 +19,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -62,7 +69,13 @@ public class GUIController implements Initializable {
 	private HBox PNGOptionsContainer;
 	@FXML
 	private ColorPicker colorPicker;
-
+	
+	private int width;
+	private int height;
+	private Color color;
+	private PNGFile pngFile;
+	private WritableImage writeableImage; 
+	
 	@FXML
 	public void selectTextButtonAction(ActionEvent event) {
 		if (btnText.isSelected()) {
@@ -115,10 +128,12 @@ public class GUIController implements Initializable {
 	@FXML
 	public void selectPNGButtonAction(ActionEvent event) {
 		if (btnPNG.isSelected()) {
-			PNGOptionsContainer.setVisible(true);
 			textOptionsContainer.setVisible(false);
 			emailOptionsContainer.setVisible(false);
+			PNGOptionsContainer.setVisible(true);
 			textArea.clear();
+			widthTextFld.clear();
+			heightTextFld.clear();
 			btnResult.setText("Create PNG");
 			errorIntLabel.setVisible(false);
 		} else {
@@ -144,6 +159,7 @@ public class GUIController implements Initializable {
 				errorIntLabel.setVisible(true);
 				errorIntLabel
 						.setText("You should choose from 6 to 254" + " characters to can access a valid mail address.");
+				textArea.clear();
 			} else {
 				errorIntLabel.setVisible(false);
 				textArea.setText(RandomMailGenerator.randomMail(Integer.parseInt(emailTextFld.getText())));
@@ -151,6 +167,43 @@ public class GUIController implements Initializable {
 			catch(NumberFormatException ex){
 				errorIntLabel.setVisible(true);
 				errorIntLabel.setText(ex.getMessage());
+			}
+		}
+		
+		if (btnPNG.isSelected()) {
+			
+	    	try	{
+				width=Integer.parseInt(widthTextFld.getText());
+				height=Integer.parseInt(heightTextFld.getText());
+	    		System.out.println("Dimensions: " + height + "x" + width + "px");
+				color = colorPicker.getValue();
+				pngFile = new PNGFile(width, height, color);
+				
+				writeableImage = SavePNGFunction.createWritableImage(pngFile);
+				
+				SavePNGFunction.saveAsPNG(writeableImage);
+
+				ImageView imageView = new ImageView();        
+				imageView.setImage(writeableImage);
+
+				StackPane root = new StackPane();
+				root.getChildren().add(imageView);
+				Scene scene = new Scene(root, ((int) writeableImage.getWidth()), ((int) writeableImage.getHeight()));
+				
+				//Take snapshot of the scene
+				writeableImage = scene.snapshot(null);
+				Stage stage = new Stage();
+				stage.setTitle("My PNG Stage");
+				stage.setScene(scene);
+				stage.show();	
+				
+	    	}	catch (NumberFormatException e) {
+	    		errorIntLabel.setVisible(true);
+				errorIntLabel.setText("Invalid input");	
+				if (widthTextFld.getText().isEmpty() || heightTextFld.getText().isEmpty()) {
+					errorIntLabel.setVisible(true);
+					errorIntLabel.setText("Please enter number of px");
+				}
 			}
 		}
 	}
