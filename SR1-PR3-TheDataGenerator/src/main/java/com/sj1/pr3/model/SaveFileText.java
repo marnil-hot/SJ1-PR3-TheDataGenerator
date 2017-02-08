@@ -50,19 +50,18 @@ public class SaveFileText {
 			}
 
 			try {
-				// Create file & get the information that will include in the file
-			
+				// Create file & print out the information in the file.
 				String content = outPut;
 				File filetxt = new File(fileName);
-				bufferedWriter = new BufferedWriter(new FileWriter(filetxt, true));
 
 				// Create or add new text to the file.
-				if (filetxt.exists()) {
-					bufferedWriter.write(content);
-
+				if (filetxt.exists() && !filetxt.isDirectory()) {
+					bufferedWriter = new BufferedWriter(new FileWriter(filetxt, true));
+					bufferedWriter.write("," + content);
 				} else {
 					filetxt.createNewFile();
-					bufferedWriter.write("," + content);
+					bufferedWriter = new BufferedWriter(new FileWriter(filetxt, true));
+					bufferedWriter.write(content);
 				}
 
 			} catch (IOException e) {
@@ -95,4 +94,3 @@ public class SaveFileText {
 		}
 	}
 }
-
