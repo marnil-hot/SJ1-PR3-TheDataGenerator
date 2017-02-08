@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 
 public class PNGCreator {
 	
-	private File file;
-	
 	/**
 	 * Developed by Kevin Nemec in User Story 10 and Edited/Extended by Kevin Nemec in User Story 11.
 	 * Method to create a new PNG file with a width, height and color specified by the user.
@@ -59,4 +57,5 @@ public class PNGCreator {
 		if(!file.exists() && file != null){
 			ImageIO.write(bufferedImage, "PNG", new File(file.getAbsolutePath() + ".png"));
 		}
+	}
 }
