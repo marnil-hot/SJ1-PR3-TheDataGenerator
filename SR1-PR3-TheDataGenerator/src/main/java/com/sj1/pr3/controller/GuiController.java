@@ -3,7 +3,6 @@ package com.sj1.pr3.controller;
 import java.util.Random;
 
 import com.sj1.pr3.passgen.*;
-import com.sj1.pr3.giberish.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,36 +42,53 @@ public class GuiController {
 	@FXML
 	private ComboBox cb;
 
+	/** Sets the combobox on Weak by default, and adds the other security
+	 * levels as well. */
 	@FXML
 	private void initialize() {
 		cb.setValue("Weak");
 		cb.setItems(SecurityLevel);
 	}
-
+	
+	/** Action handler for the generate random email button.
+	 *  Generates a random email with the length of mail field input. */
 	@FXML
 	void email(ActionEvent event) {
-		
+		try {
+			txtArea.setText(Email.emailRandom(Integer.parseInt(mailFld.getText())));
+		} catch (IllegalArgumentException e) {
+			txtArea.setText(e.getMessage() + "\nNo non-numeric characters allowed!");
+			System.err.println(e.getMessage() + "\nNo non-numeric characters allowed!");
+			gibFld.clear();
+		}
 	}
-
+	/** Action handler for the generate gibberish button.
+	 *  Generates gibberish words.
+	 *  Amount of words is set in gibberish length field. */
 	@FXML
 	void gibberish(ActionEvent event) {
+		if(txtArea.getText() != null){
+			txtArea.clear();
+		}
 		try {
 			for (String res : GibberishText.gibberize(GibberishText.getWordList(),
 					Integer.parseInt(gibFld.getText()))) {
 				txtArea.appendText(res + " ");
 			}
-			gibFld.clear();
 		} catch (IllegalArgumentException e) {
 			txtArea.setText(e.getMessage() + "\nNo non-numeric characters allowed!");
-			System.err.println(e.getMessage());
+			System.err.println(e.getMessage() + "\nNo non-numeric characters allowed!");
 			gibFld.clear();
 		}
 
 	}
 
-	/** Event handler for the generate password button. */
+	/** Action handler for the generate password button.
+	 *  Every security level has their own amount of -
+	 *  chars that will be randomised. */
 	@FXML
 	void password(ActionEvent event) {
+			/** How many of each char for a weak password */
 		if (cb.getValue() == "Weak") {
 			int minLength = 6;
 			int maxLength = 10;
@@ -84,7 +100,7 @@ public class GuiController {
 				char[] passw = PassGen.genPwd(minLength, maxLength, nbrOfUPR, nbrOfLWR, nbrOfNBR, nbrOfSYM);
 				txtArea.setText(new String(passw));
 			}
-
+			/** How many of each char for a medium password */
 		}
 		if (cb.getValue() == "Medium") {
 			int minLength = 8;
@@ -97,7 +113,7 @@ public class GuiController {
 				char[] passw = PassGen.genPwd(minLength, maxLength, nbrOfUPR, nbrOfLWR, nbrOfNBR, nbrOfSYM);
 				txtArea.setText(new String(passw));
 			}
-		}
+		}   /** How many of each char for a strong password */
 		if (cb.getValue() == "Strong") {
 			int minLength = 10;
 			int maxLength = 20;
@@ -109,7 +125,7 @@ public class GuiController {
 				char[] passw = PassGen.genPwd(minLength, maxLength, nbrOfUPR, nbrOfLWR, nbrOfNBR, nbrOfSYM);
 				txtArea.setText(new String(passw));
 			}
-		}
+		}	/** How many of each char for a very strong password */
 		if (cb.getValue() == "Very Strong") {
 			Random rnd = new Random();
 			int r = rnd.nextInt(3) + 1;
