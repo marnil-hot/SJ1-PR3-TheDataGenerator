@@ -5,20 +5,25 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Email {
-     public static String emailRandom(int length){
-         String[] stringArray = {"hotmail","gmail","yahoo"};
-         String alphabet = "abcdefghijklmnopqrstuvwxyz";
-        
+	static String[] stringArray = {"hotmail","gmail","yahoo"};
+    static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    
+    
+ 
+	public static String emailRandom(int length){
+         
          Random rand = new Random();
          StringBuilder sb = new StringBuilder();
-        
+         
          Collections.shuffle(Arrays.asList(stringArray));
         
          for(int i = 0; i < length; i++){
              int index = rand.nextInt(alphabet.length());
              char c = alphabet.charAt(index);
              sb.append(c);
+             
          }
+         
          if(length == 0){
              System.err.println("Enter a number higher than 0");
              System.exit(0);
@@ -27,6 +32,7 @@ public class Email {
              System.exit(0);
          }
         return sb.toString() + "@" + stringArray[0] + ".com";
-    
+        
      }
+	
 }
