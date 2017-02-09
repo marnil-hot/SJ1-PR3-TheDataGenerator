@@ -245,28 +245,28 @@ private void handleTextFieldanswerAction(ActionEvent event) {
 
 @FXML
 private void handleOutputAction(ActionEvent event) throws IOException {
-            if (myString!= null && myOutput != null) {
-                 try (PrintWriter result = new PrintWriter(new BufferedWriter(new FileWriter("  /Users/mariusilie/Desktop/document.pages", true))))
-                 {
-                    if (myString.getText().equals("")) {
-                     answerNr.setText("Nummer behöver");
-                     return; 
-                    } 
-                    else{
-                    result.println("You chose the number: " + myString.getText() + " " + "That will generate: " + myOutput.getText());   
-                        answerNr.setText(" Klart");
-                        myString.clear(); 
-                        System.out.println("Done Writing"); 
-                    }
-                    } 
-                 	catch (IOException ex) {
-                      answerNr.setText("Fel har uppstått ");     
-                    	}
-            }       
-            		else  {                     
-                    answerNr.setText("Göra om.");
-            		}
-            }
+	//Metod för att skapa en fil med texten från TextArean.
+	//information = myOutput.getText();
+	//Kolla om det finns innehåll i textArean
+	if(myOutput.getText().isEmpty() || myOutput.getText().length() > 200){
+		//Felmeddelanden om man inte skriver in något eller har över 20
+		errorMessage.setText("Must have a minimum of 1 character and a maximum of 200!");
+	} else {
+		try {
+		    BufferedWriter out = new BufferedWriter(new FileWriter("generatedText.txt"));
+		    out.write(myOutput.getText());
+		    System.out.println("En fil som heter generatedText.txt har genererats!");
+		    //Reset the textarea
+		    myOutput.setText("");
+		    out.close();
+		}
+		//Hanterar exception
+		catch (IOException e)
+		{
+		    System.out.println("Exception ");
+		}
+	}
+}
     
 
 @Override
