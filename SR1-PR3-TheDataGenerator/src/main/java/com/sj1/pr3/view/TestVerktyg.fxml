@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.TestVerktygController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.TestVerktygController">
    <children>
       <TextArea fx:id="outPutArea" editable="false" layoutX="394.0" layoutY="274.0" prefHeight="358.0" prefWidth="435.0" promptText="Please select something to generate." wrapText="true" />
       <TextField fx:id="lengthFld" layoutX="17.0" layoutY="88.0" prefHeight="25.0" prefWidth="135.0" promptText="Length" />
@@ -26,10 +26,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="saveToFileBtn" layoutX="675.0" layoutY="249.0" mnemonicParsing="false" onAction="#saveToFile" text="Save output to file" />
-      <Button fx:id="generateRandomBtn" layoutX="211.0" layoutY="164.0" mnemonicParsing="false" onAction="#generateRandomStrings" text="Generate random string" />
+      <Button fx:id="saveToFileBtn" layoutX="698.0" layoutY="243.0" mnemonicParsing="false" onAction="#saveToFile" text="Save output to file" />
+      <Button fx:id="generateRandomBtn" layoutX="231.0" layoutY="164.0" mnemonicParsing="false" onAction="#generateRandomStrings" text="Generate random string" />
       <Button fx:id="generateExcelBtn" layoutX="11.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Generate excel" />
-      <Button fx:id="generateEmailBtn" layoutX="17.0" layoutY="164.0" mnemonicParsing="false" text="Generate random email adress" />
+      <Button fx:id="generateEmailBtn" layoutX="17.0" layoutY="164.0" mnemonicParsing="false" onAction="#generateEmailEvent" text="Generate random email adress" />
       <Button fx:id="fetchDbBtn" layoutX="11.0" layoutY="361.0" mnemonicParsing="false" text="Fetch data from Database" />
       <Button fx:id="generateImgBtn" layoutX="12.0" layoutY="544.0" mnemonicParsing="false" text="Create Image" />
       <TextField fx:id="witdhColorFld" layoutX="13.0" layoutY="478.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
@@ -110,10 +110,7 @@
       <Button fx:id="generateGibberishBtn" layoutX="399.0" layoutY="164.0" mnemonicParsing="false" onAction="#generateGibberishButton" text="Generate Gibberish Letters" />
       <Button fx:id="counterStringBtn" layoutX="45.0" layoutY="130.0" mnemonicParsing="false" onAction="#getCounterString" prefHeight="25.0" prefWidth="149.0" text="Generate CounterString" />
       <ComboBox fx:id="dataBaseComboBox" layoutX="11.0" layoutY="325.0" prefWidth="150.0" promptText="Select what to fetch" visibleRowCount="3" />
-      <HBox layoutX="354.0" layoutY="265.0" spacing="5.0">
-         <children>
-            <Label fx:id="outPutLengthLable" text="Length: 0 chars" />
-         </children>
-      </HBox>
+      <HBox layoutX="354.0" layoutY="265.0" spacing="5.0" />
+      <Label fx:id="outPutLengthLable" layoutX="409.0" layoutY="242.0" text="Length: 0 chars" />
    </children>
 </AnchorPane>
