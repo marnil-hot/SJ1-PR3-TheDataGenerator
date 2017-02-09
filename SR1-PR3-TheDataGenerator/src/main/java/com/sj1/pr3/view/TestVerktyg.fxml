@@ -31,7 +31,7 @@
       <Button fx:id="generateExcelBtn" layoutX="11.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Generate excel" />
       <Button fx:id="generateEmailBtn" layoutX="17.0" layoutY="164.0" mnemonicParsing="false" text="Generate random email adress" />
       <Button fx:id="fetchDbBtn" layoutX="11.0" layoutY="361.0" mnemonicParsing="false" text="Fetch data from Database" />
-      <Button fx:id="generateImgBtn" layoutX="12.0" layoutY="544.0" mnemonicParsing="false" text="Create Image" />
+      <Button fx:id="generateImgBtn" layoutX="12.0" layoutY="544.0" mnemonicParsing="false" onAction="#generateImage" text="Create Image" />
       <TextField fx:id="witdhColorFld" layoutX="13.0" layoutY="478.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
       <TextField fx:id="heightColorFld" layoutX="13.0" layoutY="511.0" prefHeight="25.0" prefWidth="62.0" promptText="Height" />
       <ComboBox fx:id="colorsComboBox" layoutX="110.0" layoutY="478.0" prefWidth="150.0" promptText="Color" />
