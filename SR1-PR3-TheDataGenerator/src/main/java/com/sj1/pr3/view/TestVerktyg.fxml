@@ -49,7 +49,7 @@
          </font>
       </Text>
       <Text layoutX="15.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose length and what characters it should include, then click on one of the&quot;Generate&quot; buttons." />
-      <Label fx:id="errorLabel" layoutX="349.0" layoutY="226.0" text="Error Code 404" textFill="RED">
+      <Label fx:id="errorLabel" layoutX="349.0" layoutY="226.0" text="" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
