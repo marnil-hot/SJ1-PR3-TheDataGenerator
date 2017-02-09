@@ -34,6 +34,9 @@ public class TestVerktygController implements Initializable {
 
 	@FXML
 	private Button generateLetter;
+	
+	@FXML
+	private Button generateGibberishBtn;
 
 	@FXML
 	private Button generateExcelBtn;
