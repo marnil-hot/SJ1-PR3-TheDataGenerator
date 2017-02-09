@@ -1,4 +1,4 @@
-package com.sj1.pr3.controller;
+package aplicationTeam2;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

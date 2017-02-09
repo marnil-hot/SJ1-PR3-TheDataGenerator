@@ -7,19 +7,30 @@ Takes integer value from the field "myString" then get text from the this class.
 The result will be printed in to myOutput.*/
 
 public class SSpeciallChars {
-	
+	private static final String CHAR_LIST =
+			"!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
 	public String gSpeciallChars(int length){
+		 StringBuffer randStr = new StringBuffer();
+	        for(int i=0; i<length; i++){
+	            int number = getRandomNumber();
+	            char ch = CHAR_LIST.charAt(number);
+	            randStr.append(ch);
+	        }
+	        return randStr.toString();
+	    }
 	
-	String names[] = { "!","#","$","%","&","\",","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"};
-	Random MyS = new Random();
-	int n = MyS.nextInt(6); 
-	System.out.println(names[n]);
+	public int getRandomNumber() {
+     int randomInt = 0;
+     Random randomGenerator = new Random();
+     randomInt = randomGenerator.nextInt(CHAR_LIST.length());
+     if (randomInt - 1 == -1) {
+         return randomInt;
+     } else {
+         return randomInt - 1;
+     }
+ }
 	
-	return (names[n]);
 
-	}
-	
-}
-
+}	
 		      
 	

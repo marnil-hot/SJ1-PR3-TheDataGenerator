@@ -22,9 +22,7 @@ public class MainTeam2 extends Application {
 
 	public static void main(String[] args) {
         launch(args);
-       // RandomStringLenght p=new RandomStringLenght();
-       // RandomStringLenght.repeat(10, "a");
-        
+      
 	}
     
 }

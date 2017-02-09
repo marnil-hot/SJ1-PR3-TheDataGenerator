@@ -1,11 +1,10 @@
 package aplicationTeam2;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.hibernate.result.Output;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +21,7 @@ import javafx.scene.control.TextField;
 public class FXController implements Initializable {
 	
     @FXML
-    private Label answerNr;
+	public static Label answerNr;
     @FXML
     private Button mySavetofile;
     @FXML
@@ -59,9 +58,7 @@ public class FXController implements Initializable {
     private Button gibbutton;
 	  @FXML
 	  private Label errorMessage;
-	  @FXML
-	  private Button Generate;
-
+	
  
  
  
@@ -75,19 +72,6 @@ private void handleButtonAction(ActionEvent event) throws IOException {
 }
 
 
-@FXML
-private void handleTextFieldanswerAction(ActionEvent event) {
-	if (myString.getText().trim().equals("")) {
-		errorMessage.setText("Please fill in length of a string.");
-		myString.clear();
-		}
-	else{
-	answerNr.setText("Your number is:  " + myString.getText());
-	myString.clear();
-	}
-
-
-}
 
 /*
  * Created by Namir Wesaf. User story : 8 Generate gibberish words.
@@ -108,6 +92,8 @@ void gibberishEvent(ActionEvent event) {
 			GibberishGenerator gibberishGenerator = new GibberishGenerator();
 			String result = gibberishGenerator.generateRandomWords(Integer.parseInt(myString.getText()));
 			myOutput.setText(result);
+			myString.clear();
+		
 		} catch (final NumberFormatException ex) {
 			errorMessage.setText("Please fill in a valid number in length of a string.");
 			myString.clear();
@@ -127,14 +113,22 @@ The result will be printed in to myOutput.
   					errorMessage.setText("");
   				
   					if (myString.getText().trim().equals("")) {
-  						answerNr.setText("Please fill in length of a string.");
-  						myString.clear();
+  						errorMessage.setText("Please fill in length of a string.");
+  						myString.clear();	
+  						}
+  						else	if (myString.getText().trim().equals("0")) {
+  	  						errorMessage.setText("Please fill in length of a string but not zero.");
+  	  						myString.clear();
 	 	}
 	 	else{
 	 		try{
+	 			
 	 			SBigChars randombigChar = new SBigChars();
 	 			String resultBigChar=randombigChar.gBigChars(Integer.parseInt(myString.getText()));
 	 			myOutput.setText(resultBigChar);
+	 			myString.clear();
+	 			
+	 			
 	 		}
 	 		catch (final NumberFormatException ex) {
 				errorMessage.setText("Please fill in a valid number in length of a string.");
@@ -153,14 +147,18 @@ The result will be printed in to myOutput.
   					errorMessage.setText("");
   				
   					if (myString.getText().trim().equals("")) {
-  						answerNr.setText("Please fill in length of a string.");
-  						myString.clear();
+  						errorMessage.setText("Please fill in length of a string.");
+  						myString.clear();	}
+  						else	if (myString.getText().trim().equals("0")) {
+  	  						errorMessage.setText("Please fill in length of a string but not zero.");
+  	  						myString.clear();
 	 	}
 	 	else{
 	 		try{
 	 			SNumbers randomNumbers = new SNumbers();
 	 			String resultNumbers=randomNumbers.gNumbers(Integer.parseInt(myString.getText()));
 	 			myOutput.setText(resultNumbers);
+	 			myString.clear();
 	 		}
 	 		catch (final NumberFormatException ex) {
 				errorMessage.setText("Please fill in a valid number in length of a string.");
@@ -178,14 +176,19 @@ The result will be printed in to myOutput.
   					errorMessage.setText("");
   				
   					if (myString.getText().trim().equals("")) {
-  						answerNr.setText("Please fill in length of a string.");
+  						errorMessage.setText("Please fill in length of a string.");
   						myString.clear();
+  						}
+  						else	if (myString.getText().trim().equals("0")) {
+  	  						errorMessage.setText("Please fill in length of a string but not zero.");
+  	  						myString.clear();
 	 	}
 	 	else{
 	 		try{
 	 			SSpeciallChars randomSpeciallChar = new SSpeciallChars();
 	 			String resultSpeciallChar=randomSpeciallChar.gSpeciallChars(Integer.parseInt(myString.getText()));
 	 			myOutput.setText(resultSpeciallChar);
+	 			myString.clear();
 	 		}
 	 		catch (final NumberFormatException ex) {
 				errorMessage.setText("Please fill in a valid number in length of a string.");
@@ -205,14 +208,20 @@ The result will be printed in to myOutput.
   					errorMessage.setText("");
   				
   					if (myString.getText().trim().equals("")) {
-  						answerNr.setText("Please fill in length of a string.");
+  						errorMessage.setText("Please fill in length of a string.");
   						myString.clear();
+  					}
+						else	if (myString.getText().trim().equals("0")) {
+	  						errorMessage.setText("Please fill in length of a string but not zero.");
+	  						myString.clear();
 	 	}
 	 	else{
 	 		try{
 	 			SSmallChars randomSmallChar = new SSmallChars();
 	 			String resultSmallChar=randomSmallChar.gSmallChars(Integer.parseInt(myString.getText()));
 	 			myOutput.setText(resultSmallChar);
+	 			myString.clear();
+
 	 		}
 	 		catch (final NumberFormatException ex) {
 				errorMessage.setText("Please fill in a valid number in length of a string.");
@@ -223,49 +232,9 @@ The result will be printed in to myOutput.
   		}
 
 
-
-/* Developed by Marius in User Story .
-Method to fill a number for how many times you wish to generate the String and to show in output 
-@FXML
-private void handleTextFieldanswerAction(ActionEvent event) {
-    //System.out.println("Done");
-	 if (answerNr!= null && myString != null) {
-    answerNr.setText("Your number is:  "+myString.getText());
-   // myOutput.setText(myString.getText());
-    myOutput.setText(RandomStringLenght.repeat((Integer.parseInt(myString.getText())), "c"));
-	 }
-	 else{
-		 answerNr.setText("Write a number.");
-	 }
-   
-}*/
-
-/* Developed by Marius in User Story .
- Method which save to a file */
-
 @FXML
 private void handleOutputAction(ActionEvent event) throws IOException {
-            if (myString!= null && myOutput != null) {
-                 try (PrintWriter result = new PrintWriter(new BufferedWriter(new FileWriter("  /Users/mariusilie/Desktop/document.pages", true))))
-                 {
-                    if (myString.getText().equals("")) {
-                     answerNr.setText("Nummer behöver");
-                     return; 
-                    } 
-                    else{
-                    result.println("You chose the number: " + myString.getText() + " " + "That will generate: " + myOutput.getText());   
-                        answerNr.setText(" Klart");
-                        myString.clear(); 
-                        System.out.println("Done Writing"); 
-                    }
-                    } 
-                 	catch (IOException ex) {
-                      answerNr.setText("Fel har uppstått ");     
-                    	}
-            }       
-            		else  {                     
-                    answerNr.setText("Göra om.");
-            		}
+           
             }
     
 
