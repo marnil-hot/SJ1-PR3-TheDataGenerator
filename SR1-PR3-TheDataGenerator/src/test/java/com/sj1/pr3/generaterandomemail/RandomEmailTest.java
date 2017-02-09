@@ -1,4 +1,4 @@
-package com.sj1.pr3.controller;
+package com.sj1.pr3.generaterandomemail;
 
 import org.junit.Test;
 
