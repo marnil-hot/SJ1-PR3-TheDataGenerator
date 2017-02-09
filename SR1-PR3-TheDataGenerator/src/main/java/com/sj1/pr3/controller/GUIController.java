@@ -67,11 +67,11 @@ public class GUIController implements Initializable {
 	private HBox PNGOptionsContainer;
 	@FXML
 	private ColorPicker colorPicker;
-	
+
 	private int width;
 	private int height;
 	private Color color;
-	
+
 	@FXML
 	public void selectTextButtonAction(ActionEvent event) {
 		if (btnText.isSelected()) {
@@ -149,54 +149,61 @@ public class GUIController implements Initializable {
 				errorIntLabel.setText("Length can not be empty!");
 			}
 			try{
-			int mailLenght = Integer.parseInt(emailTextFld.getText());
-			
-			if (mailLenght < 7 || mailLenght > 254) {
-				errorIntLabel.setVisible(true);
-				errorIntLabel
-						.setText("You should choose from 6 to 254" + " characters to can access a valid mail address.");
-				textArea.clear();
-			} else {
-				errorIntLabel.setVisible(false);
-				textArea.setText(RandomMailGenerator.randomMail(Integer.parseInt(emailTextFld.getText())));
-			}}
+				int mailLenght = Integer.parseInt(emailTextFld.getText());
+
+				if (mailLenght < 7 || mailLenght > 254) {
+					errorIntLabel.setVisible(true);
+					errorIntLabel
+					.setText("You should choose from 6 to 254" + " characters to can access a valid mail address.");
+					textArea.clear();
+				} else {
+					errorIntLabel.setVisible(false);
+					textArea.setText(RandomMailGenerator.randomMail(Integer.parseInt(emailTextFld.getText())));
+				}}
 			catch(NumberFormatException ex){
 				errorIntLabel.setVisible(true);
 				errorIntLabel.setText(ex.getMessage());
 			}
 		}
-		
-		if (btnPNG.isSelected()) {
 
+		if (btnPNG.isSelected()) {
+			errorIntLabel.setVisible(false);
+			errorIntLabel.setText("Please enter a number between 16 - 1000");
 			try	{
 				width=Integer.parseInt(widthTextFld.getText());
 				height=Integer.parseInt(heightTextFld.getText());
 				color = colorPicker.getValue();
-				PNGFile.createPNG(width, height, color);
 
-				//Create new scene for displaying the image
-				ImageView imageView = new ImageView();        
-				imageView.setImage(PNGFile.writableImage);
-				StackPane root = new StackPane();
-				root.getChildren().add(imageView);
-				Scene scene = new Scene(root, PNGFile.writableImage.getWidth(), PNGFile.writableImage.getHeight());
+				if((width < 16 ) || (height < 16) ) {
+					errorIntLabel.setVisible(true);
+				} else if ((width > 1000 ) || (height > 1000)) {
+					errorIntLabel.setVisible(true);
+				} else {
+					PNGFile.createPNG(width, height, color);
 
-				//Take snapshot of the scene 
-				PNGFile.writableImage = scene.snapshot(null);
-				Stage stage = new Stage();
-				stage.setTitle("My PNG File");
-				stage.setScene(scene);
-				stage.show();	
+					//Create new scene for displaying the image
+					ImageView imageView = new ImageView();        
+					imageView.setImage(PNGFile.writableImage);
+					StackPane root = new StackPane();
+					root.getChildren().add(imageView);
+					Scene scene = new Scene(root, PNGFile.writableImage.getWidth(), PNGFile.writableImage.getHeight());
+
+					//Take snapshot of the scene 
+					PNGFile.writableImage = scene.snapshot(null);
+					Stage stage = new Stage();
+					stage.setTitle("My PNG File");
+					stage.setScene(scene);
+					stage.show();	
+				}
 
 			}	catch (NumberFormatException e) {
 				errorIntLabel.setVisible(true);
-				errorIntLabel.setText("Invalid input");	
 				if (widthTextFld.getText().isEmpty() || heightTextFld.getText().isEmpty()) {
 					errorIntLabel.setVisible(true);
-					errorIntLabel.setText("Please enter number of px");
 				}
 			}
 		}
+
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
