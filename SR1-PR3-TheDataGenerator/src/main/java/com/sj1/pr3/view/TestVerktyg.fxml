@@ -103,6 +103,6 @@
 			</children>
 		</HBox>
 		<ComboBox fx:id="dataBaseComboBox" layoutX="11.0" layoutY="325.0" prefWidth="150.0" promptText="Select what to fetch" visibleRowCount="3" />
-      <Button fx:id="gibberishLetter" layoutX="374.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleButton1" text="Generate Gibberish Letters" />
+      <Button fx:id="gibberishLetter" layoutX="374.0" layoutY="164.0" mnemonicParsing="false" onAction="#generateGibberishButton" text="Generate Gibberish Letters" />
 	</children>
 </AnchorPane>
