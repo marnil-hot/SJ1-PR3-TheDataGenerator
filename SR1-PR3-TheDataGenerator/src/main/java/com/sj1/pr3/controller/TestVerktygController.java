@@ -182,6 +182,7 @@ public class TestVerktygController implements Initializable {
 				public void run(){
 					errorLabel.setText("");
 					outPutArea.setText(generateCounterString(length, delimiterFld.getText()));
+					outPutLengthLable.setText("");
 				}
 			});
 		}
