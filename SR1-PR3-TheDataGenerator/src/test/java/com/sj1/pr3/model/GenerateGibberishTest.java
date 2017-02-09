@@ -1,13 +1,13 @@
 package com.sj1.pr3.model;
 
-import com.sj1.pr3.controller.AppTest;
-
 import junit.framework.Assert;
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
-// so this is a test to see if the generator prints out a string with the matching length of the input. In this case we test if 20 is the correct output.
+/* Developed by Ibrahim Ibrahim User Story 8_GenerateGibberish
+ * This is my GenerateGibberish Junit Test to check if a hard coded input is looped and returned in the right length (right amount of characters).
+ * We have put the expected length to 20 characters in this case, it allsow counts the spaces. 
+ * 2017-02-09 was last tested and green. 
+ */
 
 public class GenerateGibberishTest extends TestCase {
 	
@@ -19,7 +19,8 @@ public class GenerateGibberishTest extends TestCase {
         super( name );
     }
 	
-	public void setUp() throws Exception {   // the setup for my generate,I have declared my model as gg in this case
+	//I have declared my model as gg in this case
+	public void setUp() throws Exception {  
 		super.setUp();
 		gg = new GenerateGibberish();
 	}
@@ -28,9 +29,10 @@ public class GenerateGibberishTest extends TestCase {
 		super.tearDown();
 	}
 	
+	// Testing my generator to see if the length of the gibberish string match what we seek "20" in this case
     @SuppressWarnings("deprecation")
 	@org.junit.Test
-    public void testGenerateGibberish()    // Testing my generator to see if the length of the gibberish string match what we seek "20" in this case
+    public void testGenerateGibberish()   
     {
         assertTrue( true );
         String gibberish = gg.generateGibberish(20);

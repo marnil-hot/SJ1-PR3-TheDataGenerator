@@ -89,8 +89,13 @@ public class TestVerktygController implements Initializable {
 	@FXML
 	private ComboBox<?> dataBaseComboBox;
 
+	/*Developed by Ibrahim Ibrahim User Story 8_GenerateGibberish
+	 * This is my action event that is connected to the gibberish button on the GUI. 
+	 * When pressed it calls for the function generateGibberish from the model class and checks if its a digit input before counting and printing out 
+	 * the result in the output window.
+	 */
 	@FXML
-	public void handleButton1(ActionEvent event) {                      // En action event som påbörjar processen av gibberish när knappen på GUI är aktiverad av användaren. 
+	public void generateGibberishButton(ActionEvent event) {                      
 		errorLabel.setText("");
 		if (lengthFld.getText().trim().equals("")) {
 			errorLabel.setText("Please fill in a length before generating");
