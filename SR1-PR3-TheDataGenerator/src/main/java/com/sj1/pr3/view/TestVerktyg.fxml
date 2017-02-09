@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.TestVerktygController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.TestVerktygController">
    <children>
       <TextArea fx:id="outPutArea" editable="false" layoutX="354.0" layoutY="284.0" prefHeight="358.0" prefWidth="435.0" promptText="Please select something to generate." />
       <TextField fx:id="lengthFld" layoutX="17.0" layoutY="88.0" prefHeight="25.0" prefWidth="135.0" promptText="Length" />
@@ -26,19 +31,19 @@
       <Button fx:id="generateExcelBtn" layoutX="11.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Generate excel" />
       <Button fx:id="generateEmailBtn" layoutX="17.0" layoutY="164.0" mnemonicParsing="false" text="Generate random email adress" />
       <Button fx:id="fetchDbBtn" layoutX="11.0" layoutY="361.0" mnemonicParsing="false" text="Fetch data from Database" />
-      <Button fx:id="generateImgBtn" layoutX="10.0" layoutY="496.0" mnemonicParsing="false" text="Create Image" />
-      <TextField fx:id="witdhColorFld" layoutX="11.0" layoutY="430.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
-      <TextField fx:id="heightColorFld" layoutX="11.0" layoutY="463.0" prefHeight="25.0" prefWidth="62.0" promptText="Height" />
-      <ComboBox fx:id="colorsComboBox" layoutX="108.0" layoutY="430.0" prefWidth="150.0" promptText="Color" />
+      <Button fx:id="generateImgBtn" layoutX="12.0" layoutY="544.0" mnemonicParsing="false" text="Create Image" />
+      <TextField fx:id="witdhColorFld" layoutX="13.0" layoutY="478.0" prefHeight="25.0" prefWidth="62.0" promptText="Width" />
+      <TextField fx:id="heightColorFld" layoutX="13.0" layoutY="511.0" prefHeight="25.0" prefWidth="62.0" promptText="Height" />
+      <ComboBox fx:id="colorsComboBox" layoutX="110.0" layoutY="478.0" prefWidth="150.0" promptText="Color" />
       <Text layoutX="545.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="79.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
-      <Text layoutX="79.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
-      <Line endX="150.0" layoutX="113.0" layoutY="413.0" startX="-100.0" />
-      <Text layoutX="86.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate image">
+      <Text layoutX="81.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
+      <Text layoutX="81.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Px" />
+      <Line endX="150.0" layoutX="110.0" layoutY="463.0" startX="-100.0" />
+      <Text layoutX="83.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate image">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
