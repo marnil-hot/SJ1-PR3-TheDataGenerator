@@ -396,6 +396,24 @@ public class TestVerktygController implements Initializable {
 
 	}
 
+	@FXML
+	void generateGibberishEvent(ActionEvent event) {
+		errorLabel.setText("");
+		if (lengthFld.getText().trim().equals("")) {
+			errorLabel.setText("Please fill in a length before generating");
+		} else {
+			try {
+				
+				GenerateGibberish generateGibberish = new GenerateGibberish();
+				result = generateGibberish.generateGibberish(Integer.parseInt(lengthFld.getText()));
+				outPutArea.setText(result);
+				
+			} catch (NumberFormatException exception) {
+				errorLabel.setText("Please fill in only numbers in Length of string field.");
+			}
+		}
+	}
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<String> imageColors = FXCollections.observableArrayList();
 		imageColors.addAll("Red", "Blue", "Green", "Yellow", "Black");
