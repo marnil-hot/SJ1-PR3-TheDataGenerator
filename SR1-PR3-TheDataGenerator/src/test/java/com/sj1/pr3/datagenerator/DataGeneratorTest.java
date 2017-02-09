@@ -19,10 +19,12 @@ public class DataGeneratorTest extends TestCase {
 		super.tearDown();
 	}
 	
+	
 	@Test
-	public void testRandomData() {
-		//assert.assertTrue(DataGenerator.randomData().equals("4") == true);
-		Assert.assertEquals("4", DataGenerator.randomData());
+	public void testRandomMail() {
+		Assert.assertTrue(RandomMailGenerator.randomMail(15).contains("@") == true);
+		Assert.assertEquals(true , RandomMailGenerator.randomMail(15).contains("@"));
+	
 	}
 
 }
