@@ -17,7 +17,7 @@ public class Main extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Team4 - Testverktyg"); 
 		primaryStage.setResizable(false); 
-		primaryStage.show();
+		primaryStage.show();	
 	}
 	
 	public static void main(String[] start)
