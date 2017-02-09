@@ -1,5 +1,7 @@
 package aplicationTeam2;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -231,11 +233,32 @@ The result will be printed in to myOutput.
 	 		}
   		}
 
+  		@FXML
+  		private void handleOutputAction(ActionEvent event) throws IOException {
+  			//Metod för att skapa en fil med texten från TextArean.
+  			//information = myOutput.getText();
+  			//Kolla om det finns innehåll i textArean
+  			if(myOutput.getText().isEmpty() || myOutput.getText().length() > 200){
+  				//Felmeddelanden om man inte skriver in något eller har över 20
+  				errorMessage.setText("Must have a minimum of 1 character and a maximum of 200!");
+  			} else {
+  				try {
+  				    BufferedWriter out = new BufferedWriter(new FileWriter("generatedText.txt"));
+  				    out.write(myOutput.getText());
+  				    System.out.println("En fil som heter generatedText.txt har genererats!");
+  				    //Reset the textarea
+  				    myOutput.setText("Done, en fil som heter generatedText.txt har genererats!");
+  				    out.close();
+  				}
+  				//Hanterar exception
+  				catch (IOException e)
+  				{
+  				    System.out.println("Exception ");
+  				}
+  			}
+  		}
 
-@FXML
-private void handleOutputAction(ActionEvent event) throws IOException {
-           
-            }
+
     
 
 @Override

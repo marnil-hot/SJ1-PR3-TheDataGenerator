@@ -44,10 +44,13 @@
       <TextField fx:id="myHeight" layoutX="15.0" layoutY="564.0" prefHeight="27.0" prefWidth="87.0" promptText="Height" />
       <TextField fx:id="myWidth" layoutX="115.0" layoutY="564.0" prefHeight="27.0" prefWidth="80.0" promptText="Width" />
       <ColorPicker fx:id="myColor" layoutX="253.0" layoutY="564.0" promptText="myColor" />
-      <RadioButton fx:id="myNumbers" layoutX="19.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleNumbersRadioButtonAction" text="Numbers" />
-      <RadioButton fx:id="mySpecialChars" layoutX="128.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleSpeciallCharRadioButtonAction" text="Special Chars" />
-      <RadioButton fx:id="mySmallChars" layoutX="21.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleSmallCharRadioButtonAction" text="Small Chars" />
-      <RadioButton fx:id="myBigChars" layoutX="156.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleBigCharRadioButtonAction" onMouseDragReleased="#handleBigCharRadioButtonAction" text="Big Chars" />
+      <RadioButton fx:id="myNumbers" layoutX="19.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleNumbersRadioButtonAction" text="Numbers">
+         <toggleGroup>
+            <ToggleGroup fx:id="RDBt" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="mySpecialChars" layoutX="128.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleSpeciallCharRadioButtonAction" text="Special Chars" toggleGroup="$RDBt" />
+      <RadioButton fx:id="mySmallChars" layoutX="21.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleSmallCharRadioButtonAction" text="Small Chars" toggleGroup="$RDBt" />
+      <RadioButton fx:id="myBigChars" layoutX="156.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleBigCharRadioButtonAction" onMouseDragReleased="#handleBigCharRadioButtonAction" text="Big Chars" toggleGroup="$RDBt" />
       <Label layoutX="150.0" layoutY="597.0" prefHeight="17.0" prefWidth="329.0" text="Developed by Namir, Christoffer and Marius. " />
       <TextField fx:id="myString" layoutX="170.0" layoutY="73.0" promptText="Write here" />
       <Button fx:id="gibbutton" layoutX="140.0" layoutY="294.0" mnemonicParsing="false" onAction="#gibberishEvent" prefHeight="31.0" prefWidth="93.0" text="GIbberish" />
