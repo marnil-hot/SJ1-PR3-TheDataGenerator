@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sj1.pr3.controller.GuiController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="400.0">
+         <top>
+            <Text fx:id="txt" strokeType="OUTSIDE" strokeWidth="0.0" text="Mini Generator" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Tlwg Typist Bold" size="37.0" />
+               </font>
+            </Text>
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="150.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextArea fx:id="txtArea" editable="false" layoutX="48.0" layoutY="7.0" prefHeight="70.0" prefWidth="308.0" promptText="Output" />
+               </children>
+            </AnchorPane>
+         </bottom>
+         <left>
+            <AnchorPane prefHeight="197.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c5c5" height="70.0" layoutX="47.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+                  <TextField fx:id="gibFld" layoutX="111.0" layoutY="45.0" prefHeight="26.0" prefWidth="80.0" promptText="Length" />
+                  <Button fx:id="gibBtn" layoutX="203.0" layoutY="45.0" mnemonicParsing="false" onAction="#gibberish" prefHeight="26.0" text="Generate" />
+                  <Text layoutX="89.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a random gibberish text with ">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="84.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a specified number of words or letters.">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c5c5" height="70.0" layoutX="47.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c5c5" height="70.0" layoutX="48.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+                  <Text layoutX="73.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create random email addresses with a specific">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="62.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="length and conforming fully to the email standard.">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="mailFld" layoutX="111.0" layoutY="123.0" prefHeight="26.0" prefWidth="80.0" promptText="Length" />
+                  <Button fx:id="mailBtn" layoutX="203.0" layoutY="123.0" mnemonicParsing="false" onAction="#email" prefHeight="26.0" text="Generate" />
+                  <Text layoutX="103.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate a random password of">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="124.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a specified security level.">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="passBtn" layoutX="205.0" layoutY="202.0" mnemonicParsing="false" onAction="#password" prefHeight="26.0" prefWidth="79.0" text="Generate" />
+                  <ComboBox fx:id="cb" layoutX="113.0" layoutY="202.0" prefHeight="26.0" prefWidth="90.0" />
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
