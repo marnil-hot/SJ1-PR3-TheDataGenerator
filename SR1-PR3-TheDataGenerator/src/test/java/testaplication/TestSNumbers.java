@@ -30,15 +30,9 @@ public class TestSNumbers extends TestCase {
 	public void testSBigChars() {
 		SNumbers Generator = new SNumbers();
 		
-		try{
+	
 			Assert.assertEquals(Generator.gNumbers(30).length(), size);
-			System.out.println("Sucess!");	
-		}catch(Exception e)
-		{
-			System.err.println(e.getMessage());
-		}
 		
-
 	}
 
 }

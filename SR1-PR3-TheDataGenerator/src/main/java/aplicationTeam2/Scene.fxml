@@ -52,8 +52,9 @@
       <RadioButton fx:id="mySmallChars" layoutX="21.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleSmallCharRadioButtonAction" text="Small Chars" toggleGroup="$RDBt" />
       <RadioButton fx:id="myBigChars" layoutX="156.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleBigCharRadioButtonAction" onMouseDragReleased="#handleBigCharRadioButtonAction" text="Big Chars" toggleGroup="$RDBt" />
       <Label layoutX="150.0" layoutY="597.0" prefHeight="17.0" prefWidth="329.0" text="Developed by Namir, Christoffer and Marius. " />
-      <TextField fx:id="myString" layoutX="170.0" layoutY="73.0" promptText="Write here" />
+      <TextField fx:id="myString" layoutX="170.0" layoutY="73.0" onAction="#handleOutputAction" promptText="Write here" />
       <Button fx:id="gibbutton" layoutX="140.0" layoutY="294.0" mnemonicParsing="false" onAction="#gibberishEvent" prefHeight="31.0" prefWidth="93.0" text="GIbberish" />
       <Label fx:id="errorMessage" layoutX="17.0" layoutY="365.0" textFill="RED" />
+      <Label fx:id="answerNr" layoutX="18.0" layoutY="109.0" prefHeight="45.0" prefWidth="220.0" />
    </children>
 </AnchorPane>

@@ -30,15 +30,8 @@ public class TestSSmallChars extends TestCase {
 	public void testSBigChars() {
 		SSmallChars Generator = new SSmallChars();
 		
-		try{
+	
 			Assert.assertEquals(Generator.gSmallChars(20).length(), size);
-			System.out.println("Sucess!");	
-		}catch(Exception e)
-		{
-			System.err.println(e.getMessage());
-		}
 		
-
 	}
-
 }

@@ -30,13 +30,9 @@ public class TestSSpeciallChars extends TestCase {
 	public void testSBigChars() {
 		SSpeciallChars Generator = new SSpeciallChars();
 		
-		try{
+	
 			Assert.assertEquals(Generator.gSpeciallChars(10).length(), size);
-			System.out.println("Sucess!");	
-		}catch(Exception e)
-		{
-			System.err.println(e.getMessage());
-		}
+	
 		
 
 	}

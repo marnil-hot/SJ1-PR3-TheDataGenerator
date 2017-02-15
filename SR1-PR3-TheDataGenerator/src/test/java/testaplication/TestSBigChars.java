@@ -31,13 +31,10 @@ public class TestSBigChars extends TestCase {
 	public void testSBigChars() {
 		SBigChars Generator = new SBigChars();
 		
-		try{
+		
 			Assert.assertEquals(Generator.gBigChars(10).length(), size);
 			System.out.println("Sucess!");	
-		}catch(Exception e)
-		{
-			System.err.println(e.getMessage());
-		}
+		
 		
 
 	}

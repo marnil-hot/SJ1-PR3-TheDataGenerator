@@ -238,16 +238,16 @@ The result will be printed in to myOutput.
   			//Metod för att skapa en fil med texten från TextArean.
   			//information = myOutput.getText();
   			//Kolla om det finns innehåll i textArean
-  			if(myOutput.getText().isEmpty() || myOutput.getText().length() > 200){
+  			if(myOutput.getText().isEmpty() || myOutput.getText().length() > 999){
   				//Felmeddelanden om man inte skriver in något eller har över 20
-  				errorMessage.setText("Must have a minimum of 1 character and a maximum of 200!");
+  				errorMessage.setText("Must have a minimum of 1 character and a maximum of 999!");
   			} else {
   				try {
-  				    BufferedWriter out = new BufferedWriter(new FileWriter("generatedText.txt"));
+  				    BufferedWriter out = new BufferedWriter(new FileWriter("/Users/mariusilie/generatedText.txt"));
   				    out.write(myOutput.getText());
   				    System.out.println("En fil som heter generatedText.txt har genererats!");
   				    //Reset the textarea
-  				    myOutput.setText("Done, en fil som heter generatedText.txt har genererats!");
+  				   errorMessage.setText("Done, en fil som heter generatedText.txt har genererats!");
   				    out.close();
   				}
   				//Hanterar exception
